@@ -1,7 +1,7 @@
 -- Drop and recreate Points table
 
-DROP TABLE IF EXISTS points CASCADE;
-CREATE TABLE points (
+DROP TABLE IF EXISTS locations CASCADE;
+CREATE TABLE locations (
   id SERIAL PRIMARY KEY NOT NULL,
   title VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
