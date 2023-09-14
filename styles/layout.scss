@@ -3,4 +3,18 @@
 body,
 html {
   margin: 0;
+
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.nav{
+  background-color: goldenrod;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
 }

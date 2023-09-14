@@ -13,11 +13,7 @@ const userQueries = require('../db/queries/users');
 // const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser');
 
-<<<<<<< HEAD
-app.use(cookieParser());
-=======
 app.use(cookieParser())
->>>>>>> mehwish
 
 // app.use(cookieSession({
 //   name: 'session',
@@ -56,16 +52,6 @@ router.get('/login/:id', (req, res) => { // Comments from Rose: Again wondering 
   return res.redirect("/")
 });
 
-<<<<<<< HEAD
-=======
-
-    return res.redirect("/")
-
-})
-router.post('/logout',(req,res) => {
-  req.clearCookie();
-})
->>>>>>> mehwish
 
 
 module.exports = router;
