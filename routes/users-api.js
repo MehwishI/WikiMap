@@ -30,22 +30,19 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login/:id', (req, res) => {
-  //I think we might need a post login route too>
-  ///also unclear if we need to call a query at this point
-  //like to pull the users maps or the users favourites
+  //notes by Jeremy:
+  //are we simply taking the user id (from <input field> id on partial (we will have to add this)
+  //and then querying the datbase??? if it exists
+  ///then if so, we call a query for the relevant maps/favourites
+  //then redirect user to main page
+  //load maps on relevant view/pager using ajax calls
 
-  //tiny app uses a post request first
+//
 
   if(req.session.userID) {
     return res.redirect("/")
   }
 })
 
-
-router.post('/login/:id'){
-  //const id = req.body.id
-  //call query to query id from database?
-  //if id present?
-  //redirect, and call query for maps?
 
 module.exports = router;
