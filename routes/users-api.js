@@ -29,20 +29,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/login/:id', (req, res) => {
-  //notes by Jeremy:
-  //are we simply taking the user id (from <input field> id on partial (we will have to add this)
-  //and then querying the datbase??? if it exists
-  ///then if so, we call a query for the relevant maps/favourites
-  //then redirect user to main page
-  //load maps on relevant view/pager using ajax calls
 
-
-
-  if(req.session.userID) {
-    return res.redirect("/")
-  }
-})
 
 
 module.exports = router;
