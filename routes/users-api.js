@@ -13,7 +13,7 @@ const userQueries = require('../db/queries/users');
 // const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser')
 
-app.use(cookieParsers())
+app.use(cookieParser())
 
 // app.use(cookieSession({
 //   name: 'session',
@@ -34,7 +34,7 @@ router.get('/', (req, res) => {
 
 router.get('/login/:id', (req, res) => {
 
-  res.cookie('user_id', req.params.user_id);
+  res.cookie('user_id', req.params.id);
 
   //notes by Jeremy:
   //are we simply taking the user id (from <input field> id on partial (we will have to add this)
@@ -46,9 +46,12 @@ router.get('/login/:id', (req, res) => {
 
 //
 
-  if(req.session.userID) {
+
     return res.redirect("/")
-  }
+
+})
+router.post('/logout',(req,res) => {
+  req.clearCookie();
 })
 
 
