@@ -10,12 +10,15 @@ const app = express()
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
 
-const cookieSession = require('cookie-session')
+// const cookieSession = require('cookie-session')
+const cookieParser = require('cookie-parser')
 
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1', 'key']
-}));
+app.use(cookieParsers())
+
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: ['key1', 'key']
+// }));
 
 router.get('/', (req, res) => {
   userQueries.getUsers()
@@ -30,6 +33,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login/:id', (req, res) => {
+
+  res.cookie('user_id', req.params.user_id);
+
   //notes by Jeremy:
   //are we simply taking the user id (from <input field> id on partial (we will have to add this)
   //and then querying the datbase??? if it exists
