@@ -12,6 +12,7 @@ const userQueries = require('../db/queries/users');
 
 // Gets the list of users from the database - just an example
 router.get('/', (req, res) => {
+
   userQueries.getUsers()
     .then(users => {
       res.json({ users });
@@ -32,6 +33,13 @@ router.get('/login/:id', (req, res) => {
   return res.redirect("/")
 });
 
+
+router.post('/logout',(req,res) => {
+  console.log("hello logout route")
+    //.cookies["user_id"])
+  res.clearCookie('user_id');
+  return res.redirect("/")
+})
 
 
 module.exports = router;
