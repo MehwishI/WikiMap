@@ -13,7 +13,9 @@ const userQueries = require('../db/queries/users');
 // const cookieSession = require('cookie-session')
 const cookieParser = require('cookie-parser');
 
+
 app.use(cookieParser())
+
 
 // app.use(cookieSession({
 //   name: 'session',
@@ -52,6 +54,13 @@ router.get('/login/:id', (req, res) => { // Comments from Rose: Again wondering 
   return res.redirect("/")
 });
 
+
+router.post('/logout',(req,res) => {
+  console.log("hello logout route")
+    //.cookies["user_id"])
+  res.clearCookie('user_id');
+  return res.redirect("/")
+})
 
 
 module.exports = router;
