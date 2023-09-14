@@ -22,6 +22,19 @@ const createMap = function(){
   $('.main-container').append($aMap)
 
 
-}
+}//loadTweets()
 
+//ajax example from tweeter
 
+// const loadTweets = function() {
+
+//   $.ajax({
+//     url: '/tweets',
+//     success: (tweets) => {
+//       renderTweet(tweets)
+
+//     },
+//     error: (err) =>  { console.log(err)}
+//   })
+
+// }
