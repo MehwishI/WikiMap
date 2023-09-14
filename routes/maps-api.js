@@ -1,17 +1,16 @@
 const express = require('express');
 const router  = express.Router();
-const db = require('../db/connection');
+//const db = require('../db/connection');
+const mapQueries = require('../db/queries/maps');
 
 // CRUD api maps
 // Create POST request
 
 // Read all GET
 router.get('/', (req, res) => {
-  db.query(`SELECT * from maps
-  LEFT JOIN locations
-  on maps.id = locations.map_id`)
-  .then((data)=>{
-    res.json(data.rows)
+  mapQueries.getMaps()
+  .then((maps)=>{
+    res.json({ maps });
   })
 
 });
