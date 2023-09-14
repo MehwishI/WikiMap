@@ -13,7 +13,7 @@
 - Login Route (Jeremy? Mehwish?)
 
 ## FRONT END TASKS
-- Wire frame - Rosemary NS>
+- Wire frame - Rosemary IP (50%)
 - index page - Jeremy NS
 
 

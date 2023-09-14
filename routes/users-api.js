@@ -23,7 +23,9 @@ app.use(cookieParser());
 router.get('/', (req, res) => { // Comments from Rose: shouldn't we be using the app.get here for the homepage? Also, do we actually need this block of code since we are already inserted our users-api.js file path in the server.js which typically runs the homepage after require express and app configs?
   userQueries.getUsers()
     .then(users => {
+      console.log(users)
       res.json({ users });
+      console.log(users)
     })
     .catch(err => {
       res
@@ -34,7 +36,7 @@ router.get('/', (req, res) => { // Comments from Rose: shouldn't we be using the
 
 router.get('/login/:id', (req, res) => { // Comments from Rose: Again wondering why it's not an app.get here. Also, If we're using user_id below in the params, shouldn't we use the same here /login/:user_id?
 
-  res.cookie('user_id', req.params.user_id);
+  res.cookie('user_id', req.params.id);
 
   //notes by Jeremy:
   //are we simply taking the user id (from <input field> id on partial (we will have to add this)
@@ -46,12 +48,9 @@ router.get('/login/:id', (req, res) => { // Comments from Rose: Again wondering 
 
   //
 
-  if (req.session.userID) { //Comments from Rose: I think this will just be res.redirect('/'). Redirecting back to the homepage, why do we need the if statement?
-    return res.redirect("/")
-  }
+
+  return res.redirect("/")
 });
-
-
 
 
 
