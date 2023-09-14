@@ -34,6 +34,7 @@ router.get('/login/:id', (req, res) => {
   //are we simply taking the user id (from <input field> id on partial (we will have to add this)
   //and then querying the datbase??? if it exists
   ///then if so, we call a query for the relevant maps/favourites
+  //And set cookie
   //then redirect user to main page
   //load maps on relevant view/pager using ajax calls
 
