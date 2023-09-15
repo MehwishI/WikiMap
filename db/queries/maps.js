@@ -14,6 +14,6 @@ const getPinsByMapId = (id) => {
   return db.query(`SELECT * FROM locations
   WHERE id = locations.id`)
 }
-
+//
 
 module.exports = { getMaps };

@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 
 router.get('/api/pins/:mapid', (req, res) => {
   //is it supposed to be req.mapid=? req.params.mapid?
-  mapQueries.getMapById(mapid)
+  mapQueries.getPinsByMapId(req.params.mapid)
   .then((maps)=>{
     res.json({maps})
   })
