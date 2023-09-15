@@ -11,8 +11,8 @@ const getMaps = () => {
 
 //used by /api/pins/:mapid
 const getPinsByMapId = (id) => {
-  return db.query(`SELECT * FROM favourites
-  WHERE id = favourites.id`)
+  return db.query(`SELECT * FROM locations
+  WHERE id = locations.id`)
 }
 
 
