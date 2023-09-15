@@ -14,7 +14,26 @@ router.get('/', (req, res) => {
 
 });
 
+
+
+//GET /api/pins/:mapid:
+
+router.get('/api/pins/:mapid', (req, res) => {
+  //is it supposed to be req.mapid=? req.params.mapid?
+  mapQueries.getMapById(mapid)
+  .then((maps)=>{
+    res.json({maps})
+  })
+})
+
+
 // Read one GET
+//get a specific map?
+//Jeremy (based on map id?)
+
+router.get()
+
+
 
 // Update POST
 

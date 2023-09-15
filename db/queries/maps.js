@@ -9,4 +9,11 @@ const getMaps = () => {
     });
 };
 
+//used by /api/pins/:mapid
+const getPinsByMapId = (id) => {
+  return db.query(`SELECT * FROM favourites
+  WHERE id = favourites.id`)
+}
+
+
 module.exports = { getMaps };
