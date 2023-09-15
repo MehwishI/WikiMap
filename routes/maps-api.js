@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const mapQueries = require('../db/queries/maps');
 
 // CRUD api maps
@@ -8,9 +8,9 @@ const mapQueries = require('../db/queries/maps');
 // Read all GET
 router.get('/', (req, res) => {
   mapQueries.getMaps()
-  .then((maps)=>{
-    res.json({ maps });
-  })
+    .then((maps) => {
+      res.json({ maps });
+    });
 
 });
 
@@ -18,14 +18,18 @@ router.get('/', (req, res) => {
 
 //GET /api/pins/:mapid:
 
-router.get('/api/pins/:mapid', (req, res) => {
-  //is it supposed to be req.mapid=? req.params.mapid?
-  mapQueries.getPinsByMapId(req.params.mapid)
-  .then((maps)=>{
-    res.json({maps})
-  })
-})
 
+
+//edit/update map
+//Jeremy - I had this debate with myself if it would be get or post or a combo>
+//like, you have to retrieve the map but also update it....
+router.post('/:id', (req, res) => {
+  return res.json({ params: req.params, body: req.body });
+  mapQueries;
+  //do not pass req.params or req.body, pass the indvidual strings, pass each param as a string
+  //pull map in question
+  //make an update query
+});
 
 // Read one GET
 //get a specific map?

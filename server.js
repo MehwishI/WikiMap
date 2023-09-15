@@ -30,18 +30,16 @@ app.use(express.static('public'));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
+
+const pinApiRoutes = require('./routes/pins-api');
 const mapsApiRoutes = require('./routes/maps-api')
 const favApiRoutes = require('./routes/favs-api')
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
+app.use('/api/pins', pinApiRoutes);
 app.use('/api/maps', mapsApiRoutes)
 app.use('/api/favs', favApiRoutes)
 // Note: mount other resources here, using the same pattern above
@@ -53,6 +51,20 @@ app.use('/api/favs', favApiRoutes)
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+//moved here on Gary's advice
+app.get('/login/:id', (req, res) => {
+res.cookie('user_id', req.params.id);
+return res.redirect("/")
+});
+
+
+app.post('/logout',(req,res) => {
+console.log("hello logout route")
+  //.cookies["user_id"])
+res.clearCookie('user_id');
+return res.redirect("/")
+})
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
