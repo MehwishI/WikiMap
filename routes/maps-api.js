@@ -31,7 +31,7 @@ router.get('/api/pins/:mapid', (req, res) => {
 //get a specific map?
 //Jeremy (based on map id?)
 
-router.get()
+//router.get()
 
 
 

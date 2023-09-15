@@ -13,6 +13,15 @@ const getMaps = () => {
 const getPinsByMapId = (id) => {
   return db.query(`SELECT * FROM locations
   WHERE id = locations.id`)
+  .then(data => {
+    return data.rows;
+  })
+}
+
+//jeremy, I used right join because I believe we would want all data
+const getMapById = (id) => {
+  return db.query(`SELECT * FROM maps
+  WHERE maps.id = id`)
 }
 //
 
