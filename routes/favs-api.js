@@ -1,15 +1,15 @@
 const express = require('express');
 const router  = express.Router();
-const mapQueries = require('../db/queries/maps');
+const favQueries = require('../db/queries/favourites');
 
-// CRUD api maps
+// CRUD api 
 // Create POST request
 
 // Read all GET
 router.get('/', (req, res) => {
-  mapQueries.getMaps()
-  .then((maps)=>{
-    res.json({ maps });
+  favQueries.getFavourites()
+  .then((favourites)=>{
+    res.json({ favourites });
   })
 
 });
