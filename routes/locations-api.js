@@ -10,7 +10,7 @@ const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 router.get('/', (req, res) => {
   locQueries.getLocations()
     .then((locations) => {
-      res.json({ locations });
+      res.json({ locations, apiKey});
     });
 
 });
@@ -23,7 +23,7 @@ router.get('/api/locs/:mapid', (req,res) => {
   console.log("inside locs")
   locQueries.getLocsByMapId(mapid)
   .then((locations) => {
-    res.json({locations});
+    res.json({locations,apiKey});
   });
 
 })
