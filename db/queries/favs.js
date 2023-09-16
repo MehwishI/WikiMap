@@ -8,12 +8,12 @@ const getFavourites = () => {
   locations.description,
   locations.longitude,
   locations.latitude
-FROM
-  favourites
-JOIN
-  maps ON maps.id = favourites.map_id
-JOIN
-  locations ON maps.id = locations.map_id;`)
+  FROM
+    favourites
+  JOIN
+    maps ON maps.id = favourites.map_id
+  JOIN
+    locations ON maps.id = locations.map_id;`)
     .then(data => {
       return data.rows;//jn returning an array of objects
     });
