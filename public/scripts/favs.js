@@ -16,7 +16,7 @@ $(() => {
       // Loop through the array of favourite maps in the response and create a list item for each.
       for (const fav of response.favourites) {
         // Create a new list item element with a class 'fav' and set its text content to the location_title.
-        $(`<li class="fav">`).text(fav.location_title).appendTo($favsList);
+        $(`<li class="user-favs">`).text(fav.location_title).appendTo($favsList);
       }
     });
   });
