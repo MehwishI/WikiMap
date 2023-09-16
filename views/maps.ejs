@@ -19,7 +19,7 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
   </script>
-  <script src="/scripts/maps.js"></script>
+  <script defer src="/scripts/maps.js"></script>
 
 
   <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
@@ -28,9 +28,20 @@
       margin: 0;
       padding: 0;
     }
-    #edmonton-map {
-      height: 350px;
-      width: 350px;
+
+    #maps-container {
+      height: 500px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .map {
+      height: 250px;
+      width: 250px;
+      margin: 20px;
+
     }
 
   </style>
@@ -39,15 +50,10 @@
 
 <body>
   <h1>Available Maps</h1>
-  <div id="edmonton-map">
+
+  <div id="maps-container">
 
   </div>
-
-
-
-  <ul id="maps">
-
-  <ul>
 
 </body>
 

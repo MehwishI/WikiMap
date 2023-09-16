@@ -1,9 +1,24 @@
 //Client facing script, displays the list of all available maps
 
+// Initializes the google map API and displays it in the div container
+function initMap(location, mapId) {
+
+  const map = new google.maps.Map(document.getElementById(mapId), {
+    zoom: 7,
+    center: location
+  });
+
+  const marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+};
 
 
  // This code runs when the DOM is ready
 $(() => {
+
+  const $mapsContainer = $('#maps-container');
 
   // Make an AJAX (asynchronous) GET request to the '/api/maps' endpoint on the server.
   $.ajax({
@@ -12,30 +27,29 @@ $(() => {
   })
   .done((response) => {
     // When the AJAX request is successful, this callback function is executed.
-    const $mapsList = $('#maps'); //assigns the element with id 'maps' from maps.ejs to a variable
-    $mapsList.empty();  // Empty the content of the 'maps' element.
 
-    // Loop through the array of available maps in the response and create a list item for each.
+    $mapsContainer.empty();  // Empty the content of the 'maps-container' div.
+
+    // Loop through the array of available maps in the response and create a map for each.
     for (const map of response.maps) {
-      // Create a new list item element with a class 'map' and set its text content to the map title and description.
-      $(`<li class="available-maps">`).text(map.title).appendTo($mapsList);
+
+      // Create a new map container with a unique ID based on the map's ID.
+      const mapId = `map-${map.id}`
+
+      const eachMapContainer = $(`<div id="${mapId}" class="map"></div>`);
+
+      // Append the each map's container to the 'maps-container' div.
+      $($mapsContainer).append(eachMapContainer);
+
+      // Define the location for each map
+      const location = { lat: map.latitude, lng: map.longitude };
+
+      // Call the initMap function to initialize the Google Map for this location
+      initMap(location, mapId);
     }
   });
-
 
  });
 
 
-// Initializes the google map API and displays it in the div container with id=map
-function initMap() {
-   console.log("initMap function called");
-    const location = { lat: 53.5022977, lng: -113.4627523 };
-    const map = new google.maps.Map(document.getElementById("edmonton-map"), {
-      zoom: 7,
-      center: location
-    });
-  const marker = new google.maps.Marker({
-    position: location,
-    map: map
-  });
-};
+
