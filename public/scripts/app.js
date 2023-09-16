@@ -5,10 +5,13 @@
 //it is based off of tweeter
 
 // Client facing scripts here
+
+//the below is returning json data via console log to api/maps.js
+//I think vasilly said $() was short for document ready....
 $(()=> {
   $.get("/maps")
   .then((res) =>{
-    //console.log(res);
+    console.log(res);
     createMap()
     //google api here?
     //call create map here?

@@ -24,6 +24,8 @@ router.get('/', (req, res) => {
 //Jeremy - I had this debate with myself if it would be get or post or a combo>
 //like, you have to retrieve the map but also update it....
 router.post('/:id', (req, res) => {
+  //unclear if this should use req.params or req.body
+  //this article seems to suggest anytingt aht is :name is req.params
   //return res.json({ params: req.params, body: req.body });
   const mapData = [req.body.user_id, req.body.uid, req.body.title, req.body.center_longitude, req.body.center_latitude];
   //console.log(mapData);
