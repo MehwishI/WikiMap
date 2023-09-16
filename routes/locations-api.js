@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const locQueries = require('../db/queries/locations');
+const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 // CRUD api maps
 // Create POST request
@@ -19,6 +20,7 @@ router.get('/', (req, res) => {
 //GET /api/pins/:mapid:
 
 router.get('/api/locs/:mapid', (req,res) => {
+  console.log("inside locs")
   locQueries.getLocsByMapId(mapid)
   .then((locations) => {
     res.json({locations});
