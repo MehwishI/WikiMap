@@ -35,6 +35,7 @@ const pinApiRoutes = require('./routes/pins-api');
 const mapsApiRoutes = require('./routes/maps-api');
 const favApiRoutes = require('./routes/favs-api');
 const favRoutes = require('./routes/favs');
+const locApiRoutes= require('./routes/locations-api');
 
 
 // Mount all resource routes
@@ -44,6 +45,9 @@ app.use('/api/pins', pinApiRoutes);
 app.use('/api/maps', mapsApiRoutes);
 app.use('/api/favs', favApiRoutes);
 app.use('/favs', favRoutes);
+app.use ('/api/locs',locApiRoutes);
+//app.use ('/locs',locApiRoutes);
+
 
 // Note: mount other resources here, using the same pattern above
 
@@ -64,7 +68,6 @@ return res.redirect("/")
 
 app.post('/logout',(req,res) => {
 console.log("hello logout route")
-  //.cookies["user_id"])
 res.clearCookie('user_id');
 return res.redirect("/")
 })
