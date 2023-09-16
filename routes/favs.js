@@ -1,3 +1,5 @@
+//Renders ejs templates (client's view)
+
 const express = require('express');
 const router  = express.Router();
 
