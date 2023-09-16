@@ -16,7 +16,3 @@
 * Map
 * Favourite
 * Location
-
-
-
-
