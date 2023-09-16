@@ -4,7 +4,7 @@ INSERT INTO locations (title, description, map_id, longitude, latitude, created_
 VALUES ('Central Park', 'A large park in New York City', 1, -73.970002, 40.785091, '2023-09-14 09:00:00', '2023-09-14 09:00:00');
 
 INSERT INTO locations (title, description, map_id, longitude, latitude, created_at, updated_at)
-VALUES ('Statue of Liberty', 'Iconic statue in New York Bay', 2, -74.044502, 40.689247, '2023-09-14 09:15:00', '2023-09-14 09:15:00');
+VALUES ('Statue of Liberty', 'Iconic statue in New York Bay', 2, 74.044502, 40.689247, '2023-09-14 09:15:00', '2023-09-14 09:15:00');
 
 INSERT INTO locations (title, description, map_id, longitude, latitude, created_at, updated_at)
 VALUES ('Golden Gate Park', 'A famous park in San Francisco', 3, -122.489017, 37.769420, '2023-09-14 09:30:00', '2023-09-14 09:30:00');
