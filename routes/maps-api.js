@@ -24,12 +24,24 @@ router.get('/', (req, res) => {
 //Jeremy - I had this debate with myself if it would be get or post or a combo>
 //like, you have to retrieve the map but also update it....
 router.post('/:id', (req, res) => {
-  return res.json({ params: req.params, body: req.body });
-  mapQueries;
+  //return res.json({ params: req.params, body: req.body });
+  const mapData = [req.body.user_id, req.body.uid, req.body.title, req.body.center_longitude, req.body.center_latitude];
+  //console.log(mapData);
+  mapQueries.createMap(mapData)
+    .then((map) => {
+      res.json({ map });
+    })
+    .catch((err)=>{
+      console.log("create map route error: ", err)
+    })
+
   //do not pass req.params or req.body, pass the indvidual strings, pass each param as a string
   //pull map in question
   //make an update query
 });
+
+
+router.post('/');
 
 // Read one GET
 //get a specific map?

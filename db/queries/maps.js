@@ -13,16 +13,47 @@ const getMaps = () => {
 const getPinsByMapId = (id) => {
   return db.query(`SELECT * FROM locations
   WHERE id = locations.id`)
-  .then(data => {
-    return data.rows;
-  })
-}
+    .then(data => {
+      return data.rows;
+    });
+};
 
-//jeremy, I used right join because I believe we would want all data
+
 const getMapById = (id) => {
   return db.query(`SELECT * FROM maps
   WHERE maps.id = id`)
-}
+  .then(data => {
+    return data.rows;
+  })
+};
 //
 
-module.exports = { getMaps };
+const createMap = (params) => {
+
+  return db.query(`INSERT INTO maps (user_id, uid, title, center_longitude, center_latitude)
+  VALUES ($1, $2, $3, $4, $5)`)
+  .then(data => {
+    return data.rows[0]
+  })
+  .catch((err)=> {
+    console.log("create map error message: ", err.message)
+  });
+
+};
+
+//jsut here for reference, delete later
+// const addUser = function (user) {
+//   return pool
+//   .query(`INSERT INTO users (name, email, password)
+//   VALUES ($1, $2, $3)
+//   RETURNING *`, [user.name, user.email, user.password])
+//   .then((result)=> {
+//     return result.rows[0]
+//   })
+//   .catch((err) => {
+//     console.log(err.message)
+//   })
+
+// };
+
+module.exports = { getMaps, getPinsByMapId,getMapById, createMap };
