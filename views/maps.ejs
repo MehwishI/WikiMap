@@ -16,11 +16,35 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/maps.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
+  </script>
+  <script src="/scripts/maps.js"></script>
+
+
+  <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #edmonton-map {
+      height: 350px;
+      width: 350px;
+    }
+
+  </style>
+
 </head>
 
 <body>
   <h1>Available Maps</h1>
+  <div id="edmonton-map">
+
+  </div>
+
+
+
   <ul id="maps">
 
   <ul>
