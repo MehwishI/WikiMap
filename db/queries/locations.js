@@ -7,7 +7,7 @@ const getLocations = () => {
     });
 };
 
-//used by /api/pins/:mapid
+//used by /api/locs/:mapid
 const getLocsByMapId = (id) => {
   return db.query(`SELECT * from locations
   where locations.map_id = id;`)

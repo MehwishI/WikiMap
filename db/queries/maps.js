@@ -1,7 +1,15 @@
 const db = require('../connection');
 
 const getMaps = () => {
-  return db.query(`SELECT maps.title FROM maps
+  return db.query(`SELECT
+  maps.id,
+  maps.user_id,
+  maps.uid,
+  locations.title AS location_title,
+  locations.description,
+  locations.longitude,
+  locations.latitude
+  FROM maps
   JOIN locations
   ON maps.id = locations.map_id;`)
     .then(data => {

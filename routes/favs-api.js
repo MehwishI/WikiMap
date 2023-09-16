@@ -14,15 +14,15 @@ router.get('/', (req, res) => {
 });
 
 // Allows authenticated users to favourite a map
-router.get('/favourites', (req, res) => {
-  // if (req.session.user_id) {
-  //   res.send ('User is logged in!')
-  // }
+// router.get('/favourites', (req, res) => {
+//   // if (req.session.user_id) {
+//   //   res.send ('User is logged in!')
+//   // }
 
-  //Extract user_id and map_id from the request
-  const { user_id, map_id } = req.body;
-  res.send ('This is the favourites page!')
-})
+//   //Extract user_id and map_id from the request
+//   const { user_id, map_id } = req.body;
+//   res.send ('This is the favourites page!')
+// })
 
 
 

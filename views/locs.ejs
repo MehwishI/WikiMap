@@ -1,10 +1,8 @@
-<!-- Displays what the users see when they click on Create New Map -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Create Map</title>
+  <title>Maps</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,11 +14,20 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src=" "></script>
+
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
+</script>
+<script defer src="/scripts/locs.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+  <script type="module" src="./index.js"></script>
 </head>
-
 <body>
-  <h1>Create Map</h1>
-</body>
+  <div id="map"></div>
 
+
+
+</body>
 </html>
+
+

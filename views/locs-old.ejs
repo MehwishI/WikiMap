@@ -19,7 +19,7 @@
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
   </script>
-  <script defer src="/scripts/maps.js"></script>
+  <script defer src="/scripts/locs.js"></script>
 
 
   <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
@@ -29,7 +29,7 @@
       padding: 0;
     }
 
-    #maps-container {
+    #locs-container {
       height: 500px;
       width: 100%;
       display: flex;
@@ -49,9 +49,9 @@
 </head>
 
 <body>
-  <h1>Available Maps</h1>
+  <h1>Available locations on the map</h1>
 
-  <div id="maps-container">
+  <div id="locs-container">
 
   </div>
 

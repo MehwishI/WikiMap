@@ -37,6 +37,7 @@ const mapsRoutes = require('./routes/maps');
 const favApiRoutes = require('./routes/favs-api');
 const favRoutes = require('./routes/favs');
 const locApiRoutes= require('./routes/locations-api');
+const locRoutes = require('./routes/locations');
 
 
 // Mount all resource routes
@@ -47,6 +48,7 @@ app.use('/api/maps', mapsApiRoutes);
 app.use('/maps', mapsRoutes);
 app.use('/api/favs', favApiRoutes);
 app.use('/favs', favRoutes);
+app.use('/locs',locRoutes);
 app.use ('/api/locs',locApiRoutes);
 //app.use ('/locs',locApiRoutes);
 
