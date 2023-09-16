@@ -33,6 +33,7 @@ app.use(express.static('public'));
 
 const pinApiRoutes = require('./routes/pins-api');
 const mapsApiRoutes = require('./routes/maps-api');
+const mapsRoutes = require('./routes/maps');
 const favApiRoutes = require('./routes/favs-api');
 const favRoutes = require('./routes/favs');
 
@@ -42,6 +43,7 @@ const favRoutes = require('./routes/favs');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/pins', pinApiRoutes);
 app.use('/api/maps', mapsApiRoutes);
+app.use('/maps', mapsRoutes);
 app.use('/api/favs', favApiRoutes);
 app.use('/favs', favRoutes);
 
