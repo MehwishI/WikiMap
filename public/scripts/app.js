@@ -1,9 +1,3 @@
-
-//please do not alter this withouth speaking to Jeremy
-//this is sucessfuly creating a div to hold a map and appending it to index.ejs.
-//more needs to be done but this is a start
-//it is based off of tweeter
-
 // Client facing scripts here
 
 //the below is returning json data via console log to api/maps.js

@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-  <title>Available Maps</title>
+  <title>Maps</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,21 +16,44 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/users.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
+  </script>
+  <script defer src="/scripts/maps.js"></script>
+
+
+  <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #maps-container {
+      height: 500px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .map {
+      height: 250px;
+      width: 250px;
+      margin: 20px;
+
+    }
+
+  </style>
+
 </head>
 
 <body>
   <h1>Available Maps</h1>
 
-  <ul>
-    <li>Map 1</li>
-    <form method="POST" action="/favourites">
-      <button type="submit">Add to my favourites</button>
-    </form>
+  <div id="maps-container">
 
-
-  </ul>
-
+  </div>
 
 </body>
 
