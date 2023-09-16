@@ -29,19 +29,22 @@ app.use(
 app.use(express.static('public'));
 
 // Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
+
 
 const pinApiRoutes = require('./routes/pins-api');
-const mapsApiRoutes = require('./routes/maps-api')
-const favApiRoutes = require('./routes/favs-api')
+const mapsApiRoutes = require('./routes/maps-api');
+const favApiRoutes = require('./routes/favs-api');
+const favRoutes = require('./routes/favs');
 
 
 // Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
+
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/pins', pinApiRoutes);
-app.use('/api/maps', mapsApiRoutes)
-app.use('/api/favs', favApiRoutes)
+app.use('/api/maps', mapsApiRoutes);
+app.use('/api/favs', favApiRoutes);
+app.use('/favs', favRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
