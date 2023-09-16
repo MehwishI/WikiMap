@@ -40,19 +40,23 @@
 //   new MarkerClusterer({ markers, map });
 // }
 const locations = [
-  { lat: -31.56391, lng: 147.154312,title:'A' },
-  { lat: -33.718234, lng: 150.363181,title:'B' },
-  { lat: -33.727111, lng: 150.371124,title:'C' },
+  { lat: -122.489017,lng: 37.769420,title:'Golden Gate Park' },
+  { lat: -73.970002, lng:40.785091,title:'Central Park' },
+  { lat:-74.044502, lng: 40.689247,title:'Statue of Liberty' },
+
 
 
 ];
 
 function initMap() {
+  console.log("inside initMap")
 
-  const map = new google.maps.Map(document.getElementById(map), {
+  const map = new google.maps.Map(document.getElementById('mapDiv'), {
     zoom: 7,
-    center: { lat: -33.727111, lng: 150.371124 }
+    center: { lat:-74.044502, lng: 40.689247 },
+   // mapTypeId: 'satellite'
   });
+  console.log(map)
 for(let loc of locations) {
 
 
@@ -70,40 +74,43 @@ for(let loc of locations) {
 
 ////
 // This code runs when the DOM is ready
-// $(() => {
+$(document).ready(() => {
 
-//   const $map = $('#map');
+  const mapDiv = $('#mapDiv');
 
-//   // Make an AJAX (asynchronous) GET request to the '/api/locs' endpoint on the server.
-//   $.ajax({
-//     method: 'GET',
-//     url: '/api/locs/id'
-//   })
-//   .done((response) => {
-//     // When the AJAX request is successful, this callback function is executed.
+  // Make an AJAX (asynchronous) GET request to the '/api/locs' endpoint on the server.
+  $.ajax({
+    method: 'GET',
+    url: '/locs'
+  })
+  .done((response) => {
+    // When the AJAX request is successful, this callback function is executed.
 
-//     $map.empty();  // Empty the content of the 'maps-container' div.
+    mapDiv.empty();  // Empty the content of the 'maps-container' div.
 
-//     // Loop through the array of available maps in the response and create a map for each.
-//     for (const loc of response.locations) {
+    // Loop through the array of available maps in the response and create a map for each.
+   // for (const loc of response.locations) {
 
-//       // Create a new map container with a unique ID based on the map's ID.
-//       //const locId = `map-${loc.id}`
+      // Create a new map container with a unique ID based on the map's ID.
+      //const locId = `map-${loc.id}`
 
-//       //const eachlocContainer = $(`<div id="${mapId}" class="map"></div>`);
+      //const eachlocContainer = $(`<div id="${mapId}" class="map"></div>`);
 
-//       // Append the each map's container to the 'maps-container' div.
-//       //$($map).append(eachMapContainer);
+      // Append the each map's container to the 'maps-container' div.
+      //$($map).append(eachMapContainer);
 
-//       // Define the location for each map
-//      const location = {  lat: -31.56391, lng: 147.154312  };
+      // Define the location for each map
+     //const location = {  lat: -31.56391, lng: 147.154312  };
 
-//       // Call the initMap function to initialize the Google Map for this location
-//      // initMap(location, mapId);
-//     }
-//   });
+      // Call the initMap function to initialize the Google Map for this location
+     // initMap(location, mapId);
+     console.log("inside locs,")
+     initMap();
 
-//  });
+  });
+
+
+ });
 // /////
 
-initMap();
+

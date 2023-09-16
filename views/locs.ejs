@@ -13,17 +13,26 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
 
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/locs.js"></script>
+
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
 </script>
-<script defer src="/scripts/locs.js"></script>
-  <link rel="stylesheet" type="text/css" href="./style.css" />
-  <script type="module" src="./index.js"></script>
+<style>
+   #mapDiv {
+      height: 500px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+</style>
+
 </head>
 <body>
-  <div id="map"></div>
+  <div id="mapDiv"></div>
 
 
 
