@@ -18,13 +18,13 @@ VALUES ('Sydney Opera House', 'World-famous performing arts', 5, -33.856709, 151
 INSERT INTO locations (title, description, map_id, latitude, longitude, created_at, updated_at)
 VALUES ('Great Wall of China', 'Ancient defensive wall in China', 6, 40.431613, 116.570249, '2023-09-14 10:30:00', '2023-09-14 10:30:00');
 
-INSERT INTO locations (title, description, map_id, latitude, longitude created_at, updated_at)
+INSERT INTO locations (title, description, map_id, latitude, longitude, created_at, updated_at)
 VALUES ('Machu Picchu', 'Inca citadel in the Andes mountains', 7, -13.226685, -72.497450, '2023-09-14 10:45:00', '2023-09-14 10:45:00');
 
 INSERT INTO locations (title, description, map_id, latitude, longitude, created_at, updated_at)
 VALUES ('Tokyo Tower', 'Landmark in Tokyo, Japan', 8, 135.658545, 139.745389, '2023-09-14 11:00:00', '2023-09-14 11:00:00');
 
-INSERT INTO locations (title, description, map_id, latitude, longitude created_at, updated_at)
+INSERT INTO locations (title, description, map_id, latitude, longitude, created_at, updated_at)
 VALUES ('The Colosseum', 'Ancient Roman amphitheater in Rome', 9, 41.890169, 12.491898 '2023-09-14 11:15:00', '2023-09-14 11:15:00');
 
 INSERT INTO locations (title, description, map_id, latitude, longitude, created_at, updated_at)

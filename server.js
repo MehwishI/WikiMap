@@ -50,7 +50,7 @@ app.use('/api/favs', favApiRoutes);
 app.use('/favs', favRoutes);
 app.use('/locs',locRoutes);
 app.use ('/api/locs',locApiRoutes);
-//app.use ('/locs',locApiRoutes);
+
 
 
 // Note: mount other resources here, using the same pattern above
@@ -71,7 +71,7 @@ return res.redirect("/")
 
 
 app.post('/logout',(req,res) => {
-console.log("hello logout route")
+
 res.clearCookie('user_id');
 return res.redirect("/")
 })

@@ -8,9 +8,9 @@ const getLocations = () => {
 };
 
 //used by /api/locs/:mapid
-const getLocsByMapId = (id) => {
+const getLocsByMapId = (mapid) => {
   return db.query(`SELECT * from locations
-  where locations.map_id = id;`)
+  where locations.map_id = $1;`,[mapid])
   .then(data => {
     return data.rows;
   })
