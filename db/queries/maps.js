@@ -38,7 +38,7 @@ const getMapById = (id) => {
 
 const createMap = (params) => {
   //may have to adjuste params depending on how we choose to post (form, etc)
-  return db.query(`INSERT INTO maps (user_id, uid, title, center_longitude, center_latitude)
+  return db.query(`INSERT INTO maps (user_id, uid, title, latitude, longitude)
   VALUES ($1, $2, $3, $4, $5)`)
   .then(data => {
     return data.rows[0]
