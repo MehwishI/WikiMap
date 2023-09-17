@@ -16,14 +16,48 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
+  </script>
   <script defer src="/scripts/favs.js"></script>
+</head>
+
+<!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  #favs {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .fav-map {
+    height: 250px;
+    width: 250px;
+    margin: 20px;
+  }
+
+  .each-favourite-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
+
 </head>
 
 <body>
   <h1>Favourites</h1>
-  <ul id="favs">
-    
-  </ul>
+
+  <div id="favs">
+
+  </div>
+
 </body>
 
 </html>

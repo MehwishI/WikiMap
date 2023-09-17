@@ -9,7 +9,6 @@ const mapQueries = require('../db/queries/maps');
 router.get('/', (req, res) => {
   mapQueries.getMaps()
     .then((maps) => {
-      res.json({locations, apiKey})
       res.json({ maps });
     });
 
