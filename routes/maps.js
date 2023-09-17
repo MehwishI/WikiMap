@@ -10,7 +10,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/create', (req, res) => {
-  res.render('maps_new');
+
+  //pass the api key to the render
+  res.render('maps_new', { apiKey });
+  //res.json({apiKey})
 
 });
 

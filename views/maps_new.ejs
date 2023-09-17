@@ -15,12 +15,51 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
 
+  <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #create-map-container {
+        height: 500px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .map {
+        height: 250px;
+        width: 250px;
+        margin: 20px;
+
+      }
+
+    </style>
+
+  <!-- scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src=" "></script>
+
+  <!-- google api script -->
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap"></script>
+  <!-- <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
+  </script> -->
+  <!-- I presume this is telling it where to send the data?-->
+  <script defer src="/scripts/create-map.js"></script>
 </head>
 
+
 <body>
-  <h1>Create Map</h1>
+  <h1>Create Maps</h1>
+
+  <div id="create-map-container">
+
+  </div>
+
 </body>
 
 </html>
