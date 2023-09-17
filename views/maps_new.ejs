@@ -41,21 +41,22 @@
 
   <!-- scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src=" "></script>
 
   <!-- google api script -->
-  <script async defer
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap"></script>
+  <!-- <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
-  </script>
+  </script> -->
   <!-- I presume this is telling it where to send the data?-->
   <script defer src="/scripts/create-map.js"></script>
 </head>
 
 
 <body>
-  <h1>Available Maps</h1>
+  <h1>Create Maps</h1>
 
-  <div id="maps-container">
+  <div id="create-map-container">
 
   </div>
 
