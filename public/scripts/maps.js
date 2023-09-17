@@ -36,7 +36,7 @@ $(() => {
       // Create a new map container with a unique ID based on the map's ID.
       const mapId = `map-${map.id}`
 
-      const eachMapContainer = $(`<div id="${mapId}" class="map"><a href="/api/locs/${map.id}"> View map </a></div>`);
+      const eachMapContainer = $(`<div id="${mapId}" class="map"></div><a href="/api/locs/${map.id}"> View map </a>`);
 
       // Append the each map's container to the 'maps-container' div.
       $($mapsContainer).append(eachMapContainer);
