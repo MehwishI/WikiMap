@@ -16,28 +16,27 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-      #create-map-container {
-        height: 500px;
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    #create-map-container {
+      height: 500px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-      .map {
-        height: 250px;
-        width: 250px;
-        margin: 20px;
+    .map {
+      height: 250px;
+      width: 250px;
+      margin: 20px;
 
-      }
-
-    </style>
+    }
+  </style>
 
   <!-- scripts -->
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -56,27 +55,30 @@
 <body>
   <h1>Create Maps</h1>
 
- <!-- copied from tinyapp; change details including route-->
+  <!-- copied from tinyapp; change details including route-->
   <form class="form-inline" action="/maps/create" method="POST">
     <div>
       <label for="title">Map title</label>
-      <input
-        class="form-control"
-        type="text"
-        name="createMap"
-        placeholder="Maps are awesome"
-        style="width: 300px; margin: 1em"
-      />
+
+      <input class="form-control" type="text" name="createMap" placeholder="Maps are awesome"
+        style="width: 300px; margin: 1em" />
+      <label for="latitude">Latitude</label>
+      <input class="form-control" type="text" name="latitude" placeholder="Enter latitude"
+        style="width: 300px; margin: 1em" />
+      <label for="latitude">Latitude</label>
+      <input class="form-control" type="text" name="longitude" placeholder="Enter longitude"
+        style="width: 300px; margin: 1em" />
+
       <!-- note btn class is bootstrap and will not work until you bring it into the project -->
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
   </form>
 
-</section>
-<div id="tweetList">
-  <div id="create-map-container">
+  </section>
+  <div id="tweetList">
+    <div id="create-map-container">
 
-  </div>
+    </div>
 
 </body>
 
