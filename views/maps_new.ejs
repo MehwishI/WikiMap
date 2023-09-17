@@ -56,6 +56,24 @@
 <body>
   <h1>Create Maps</h1>
 
+ <!-- copied from tinyapp; change details including route-->
+  <form class="form-inline" action="/maps/create" method="POST">
+    <div>
+      <label for="title">Map title</label>
+      <input
+        class="form-control"
+        type="text"
+        name="createMap"
+        placeholder="Maps are awesome"
+        style="width: 300px; margin: 1em"
+      />
+      <!-- note btn class is bootstrap and will not work until you bring it into the project -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+</section>
+<div id="tweetList">
   <div id="create-map-container">
 
   </div>
