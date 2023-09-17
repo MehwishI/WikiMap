@@ -56,16 +56,19 @@
   <h1>Create Maps</h1>
 
   <!-- copied from tinyapp; change details including route-->
-  <form class="form-inline" action="/maps/create" method="POST">
+  <form class="form-inline" action="/create" method="POST">
     <div>
+      <label for="title">Enter a UID</label>
+      <input class="form-control" type="text" name="uid" placeholder="enter a test uid"
+        style="width: 300px; margin: 1em" />
       <label for="title">Map title</label>
       <input class="form-control" type="text" name="title" placeholder="Maps are awesome"
         style="width: 300px; margin: 1em" />
       <label for="latitude">Latitude</label>
-      <input class="form-control" type="text" name="latitude" placeholder="Enter latitude"
+      <input class="form-control" type="text" name="latitude" placeholder="0.0"
         style="width: 300px; margin: 1em" />
       <label for="latitude">Latitude</label>
-      <input class="form-control" type="text" name="longitude" placeholder="Enter longitude"
+      <input class="form-control" type="text" name="longitude" placeholder="0.0"
         style="width: 300px; margin: 1em" />
 
       <!-- note btn class is bootstrap and will not work until you bring it into the project -->

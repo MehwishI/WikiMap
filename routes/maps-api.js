@@ -6,27 +6,32 @@ const mapQueries = require('../db/queries/maps');
 // Create POST request
 
 // Read all GET
-router.get('/', (req, res) => {
-  mapQueries.getMaps()
-    .then((maps) => {
-      res.json({ maps });
-    });
+// router.get('/', (req, res) => {
+//   mapQueries.getMaps()
+//     .then((maps) => {
+//       res.json({ maps });
+//     });
 
-});
+// });
 
 
 
 //GET /api/pins/:mapid:
 
-router.post('/create', (req, res) =>{
+router.post('/', (req, res) =>{
   // const title = req.body.title;
-  const title = "my title"
+  console.log("create post route triggered")
+  console.log(req.body)
+  const user_id = req.cookies.user_id;
+  const uid = req.body.uid;
+  const title = req.body.title;
   const latitude = req.body.latitude
   const longitude = req.body.longitude
-  let mapData = {title: title, latitude: latitude, longitude: longitude}
+  let mapData = {user_id: user_id, uid: uid, title: title, latitude: latitude, longitude: longitude}
   mapQueries.createMap(mapData)
   .then((map) => {
-    res.json(map)//will this correctly convert the returned sql rows to json?
+    //res.json(map)//will this correctly convert the returned sql rows to json?
+    res.redirect('/create');
   }).catch((err)=>{
     console.log("There was an error creating the map")
   })

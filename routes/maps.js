@@ -10,9 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/create', (req, res) => {
-  const title = req.body.title;
-  const latitude = req.body.title
-  const longitude = req.body.title
+
   // app.get('/login/:id', (req, res) => {
   //   res.cookie('user_id', req.params.id);
   //   return res.redirect("/")
