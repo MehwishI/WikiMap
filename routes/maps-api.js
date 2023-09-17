@@ -18,12 +18,18 @@ router.get('/', (req, res) => {
 
 //GET /api/pins/:mapid:
 
-router.post('/api/maps/create', (req, res) =>{
-  const title = req.body.title;
-  const latitude = req.body.title
-  const longitude = req.body.title
+router.post('/create', (req, res) =>{
+  // const title = req.body.title;
+  const title = "my title"
+  const latitude = req.body.latitude
+  const longitude = req.body.longitude
   let mapData = {title: title, latitude: latitude, longitude: longitude}
   mapQueries.createMap(mapData)
+  .then((map) => {
+    res.json(map)//will this correctly convert the returned sql rows to json?
+  }).catch((err)=>{
+    console.log("There was an error creating the map")
+  })
       // .then((map) => {
       //   res.json({ map });
       // })

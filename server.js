@@ -50,6 +50,8 @@ app.use('/api/favs', favApiRoutes);
 app.use('/favs', favRoutes);
 app.use('/locs',locRoutes);
 app.use ('/api/locs',locApiRoutes);
+app.use ('/create', mapsApiRoutes)
+
 //app.use ('/locs',locApiRoutes);
 
 
