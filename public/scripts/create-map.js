@@ -51,7 +51,8 @@ $(() => {
   // Make an AJAX (asynchronous) GET request to the '/api/maps' endpoint on the server.
   $.ajax({
     method: 'GET',
-    url: '/api/maps'
+    url: '/api/maps/create'
+    //jeremy, I had the wrong ajax call
   })
   .done((response) => {
     // When the AJAX request is successful, this callback function is executed.
@@ -64,6 +65,7 @@ $(() => {
       // Create a new map container with a unique ID based on the map's ID.
       const mapId = `map-${map.id}`
 
+      //THIS NEEDS TO BE UPDATE JEREMY TO JEREMY
       const eachMapContainer = $(`<div id="${mapId}" class="map"><a href="/api/locs/${map.id}"> View map </a></div>`);
 
       // Append the each map's container to the 'maps-container' div.
