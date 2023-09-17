@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 });
 
-
+router.get('create')
 
 //GET /api/pins/:mapid:
 
