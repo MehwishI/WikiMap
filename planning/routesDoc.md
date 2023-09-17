@@ -14,7 +14,7 @@
 
 * GET /api/favourites: This API route retrieves favorites for the current user based on their session or cookie data.
 
-* GET /api/pins/:mapid: This route can be used to retrieve information about pins or locations on a specific map (identified by mapid).
+* GET /api/locs/:mapid: This route can be used to retrieve information about pins or locations on a specific map (identified by mapid).
 
 * POST /api/favourite: This route is used to create a new favorite for the current logged-in user, typically based on the data sent in the request body.
 

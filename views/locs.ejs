@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Pin Locations on Map</title>
 
-<head>
-  <title>Pin Locations on Map</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
 
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap"
+    ></script>
+    <script defer src="/scripts/locs.js"></script>
 
-  <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/locs.js"></script>
-
-
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
-</script>
-<style>
-   #mapDiv {
-      height: 500px;
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-</style>
-
-</head>
-<body>
-  <div id="mapDiv"></div>
-
-
-
-</body>
+    <style>
+      #mapDiv {
+        height: 500px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mapDiv"></div>
+  </body>
 </html>
-
-
