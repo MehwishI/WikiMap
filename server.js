@@ -73,7 +73,7 @@ return res.redirect("/")
 
 
 app.post('/logout',(req,res) => {
-console.log("hello logout route")
+
 res.clearCookie('user_id');
 return res.redirect("/")
 })

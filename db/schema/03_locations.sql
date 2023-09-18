@@ -13,4 +13,3 @@ CREATE TABLE locations (
 );
 
 
--- thisi s a test comment

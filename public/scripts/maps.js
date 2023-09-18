@@ -43,7 +43,7 @@ $(() => {
       <div class="each-map-container">
         <div id="${mapId}" class="map">
         </div>
-        <h3> <a href="/api/locs/${map.id}"> ${map.title} </h3> </a>
+        <h3> <a href="/locs/${map.id}"> ${map.title} </h3> </a>
       </div>`);
 
 
