@@ -16,13 +16,12 @@
 
     <script
       async
-      defer
       src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap"
     ></script>
     <script defer src="/scripts/locs.js"></script>
 
     <style>
-      #mapDiv {
+      #locs-container {
         height: 500px;
         width: 100%;
         display: flex;
@@ -32,6 +31,6 @@
     </style>
   </head>
   <body>
-    <div id="mapDiv"></div>
+    <div id="locs-container"></div>
   </body>
 </html>

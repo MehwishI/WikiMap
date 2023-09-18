@@ -3,26 +3,23 @@ const router = express.Router();
 const locQueries = require('../db/queries/locations');
 
 
-// CRUD api maps
-// Create POST request
 
 // Read all GET
 router.get('/', (req, res) => {
   locQueries.getLocations()
     .then((locations) => {
+      console.log(locations);
       res.json({ locations });
     });
-
 });
+
 //GET all locations for a map id
 router.get("/:mapid", (req, res) => {
   locQueries
     .getLocsByMapId(req.params.mapid)
 
     .then((locations) => {
-      //console.log(locations)
       res.json({ locations });
-      //res.render()
     });
 });
 

@@ -1,7 +1,7 @@
 -- Insert table seeds for maps
 
 INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (1, 'A', 'Vancouver', 49.2578182, -123.2063034);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (2, 'B', 'Edmonton', 53.5267714, -113.6575391);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (2, 'B', 'Edmonton', 53.54702366643828, -113.4930045077159);
 INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (3, 'C', 'Ottawa', 45.2443309, -77.0479846);
 INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (4, 'D', 'Saskatoon', 52.1505506, -106.7468098);
 INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (5, 'E', 'Winnipeg', 49.8538852, -97.3176422);
