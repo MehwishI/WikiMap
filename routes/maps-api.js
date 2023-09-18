@@ -36,6 +36,8 @@ router.post('/', (req, res) =>{
     console.log("There was an error creating the map")
   })
 
+});
+
 //edit/update map
 //Jeremy - I had this debate with myself if it would be get or post or a combo>
 //like, you have to retrieve the map but also update it....
@@ -79,8 +81,6 @@ router.post('/create', (req, res) =>{
 
 })
 
-
-router.post('/');
 
 // Read one GET
 //get a specific map?

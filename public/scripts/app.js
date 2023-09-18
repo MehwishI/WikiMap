@@ -7,18 +7,22 @@
 
 $(() => {
   //call loadmaps()
+  console.log(Start)
+  $('.new-map').on('click', showCreateMapForm);
 
   //put everything here
   //function calls
 
-  $.get("/maps").then((res) => {
-    console.log(res);
-    createMap(); //refers to this function on this page, not the query page, confusing change it
-    //google api here?
-    //call create map here?
-    //jquery load div into body
-    //
-  });
+
+//make load functios instead of below
+  // $.get("/maps").then((res) => {
+  //   console.log(res);
+  //   createMap(); //refers to this function on this page, not the query page, confusing change it
+  //   //google api here?
+  //   //call create map here?
+  //   //jquery load div into body
+  //   //
+  // });
 
   console.log("test");
 
@@ -41,6 +45,14 @@ $(() => {
 
   renderMaps(); // call it inside the loadMap()
 });
+
+const showCreateMapForm = function(){
+  // alert("showing the form")
+  $('.create-map-form').removeClass("hidden")
+
+}
+
+
 
 // const loadMaps = function(){
 
@@ -66,5 +78,3 @@ $(() => {
 //     },
 //     error: (err) =>  { console.log(err)}
 //   })
-
-// }

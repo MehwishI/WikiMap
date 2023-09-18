@@ -15,10 +15,11 @@
     <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
 
     <script src="/vendor/jquery-3.0.0.js"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
-    </script>
+    <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=console.debug"> -->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTlH2zUp3AWtcEogHcP0Y28fjxX_2Gv0k&callback=console.debug"></script>
     <script defer src="/scripts/app.js"></script>
-    <script defer src="/scripts/maps.js"></script>
+    <script src="/scripts/create-map.js"></script>"
+    <!-- <script defer src="/scripts/maps.js"></script> -->
 
     <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
     <style>
@@ -65,7 +66,7 @@
       <nav>
         <h1> Wiki Map </h1>
         <div class="nav-links">
-          <a href="/maps/create">Create Map</a>
+          <button class="new-map">Create New Map</button>
           <a href="/favs">My Favourites</a>
             <!-- <form action="/api/users/logout" method="POST">
               <button type="submit" name="Logout">Logout</button>
@@ -79,12 +80,21 @@
 
     <div id="map-screen">
 
-      <div id="maps-container"></div>
+      <div id="maps-container">
 
-      <iframe src="http://localhost:8080/locs/1" width="70%" height="800"></iframe>
+      </div>
+
+      <!-- <iframe src="http://localhost:8080/locs/1" width="70%" height="800"></iframe> -->
 
     </div>
 
-
+    <div class="create-map-form hidden" style="height: 400px">
+      <form>
+        //add input and button etc
+        <input/>
+        <button type="submit" class="create-map-button" id="create-map">Create Map</button>
+      </form>
+      <button type="click" id="reset" class="map-reset-button">Reset</button>
+    </div>
   </body>
 </html>
