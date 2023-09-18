@@ -15,14 +15,16 @@
     <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
 
     <script src="/vendor/jquery-3.0.0.js"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
-    </script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap"
+    ></script>
     <script defer src="/scripts/app.js"></script>
     <script defer src="/scripts/maps.js"></script>
+    <script defer src="/scripts/locs.js"></script>
 
     <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
     <style>
-
       nav {
         display: flex;
         align-items: center;
@@ -33,7 +35,6 @@
         width: 100%;
         position: fixed;
         padding: 0px 40px;
-
       }
 
       #maps-container {
@@ -54,37 +55,33 @@
         padding-left: 40px;
         margin: 0px;
       }
-
-
     </style>
-
   </head>
 
   <body>
     <header>
       <nav>
-        <h1> Wiki Map </h1>
+        <h1>Wiki Map</h1>
         <div class="nav-links">
           <a href="/maps/create">Create Map</a>
           <a href="/favs">My Favourites</a>
-            <!-- <form action="/api/users/logout" method="POST">
+          <!-- <form action="/api/users/logout" method="POST">
               <button type="submit" name="Logout">Logout</button>
             </form> -->
-          </div>
+        </div>
       </nav>
 
-      <h2> List of Available Maps </h2>
-
+      <h2>List of Available Maps</h2>
     </header>
 
     <div id="map-screen">
-
       <div id="maps-container"></div>
 
-      <iframe src="http://localhost:8080/locs/1" width="70%" height="800"></iframe>
-
+      <iframe
+        src="http://localhost:8080/locs/1"
+        width="70%"
+        height="800"
+      ></iframe>
     </div>
-
-
   </body>
 </html>
