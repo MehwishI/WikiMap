@@ -28,14 +28,14 @@ router.get("/:mapid", (req, res) => {
 
 //GET /api/pins/:mapid:
 
-router.get('/api/locs/:mapid', (req,res) => {
-  console.log("inside locs")
-  locQueries.getLocsByMapId(mapid)
-  .then((locations) => {
-    res.json({locations});
-  });
+// router.get('/api/locs/:mapid', (req,res) => {
+//   console.log("inside locs")
+//   locQueries.getLocsByMapId(mapid)
+//   .then((locations) => {
+//     res.json({locations});
+//   });
 
-})
+// })
 
 
 // })
