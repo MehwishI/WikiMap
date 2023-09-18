@@ -5,7 +5,7 @@ const router = express.Router();
 const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 router.get('/', (req, res) => {
-  res.render('maps', { apiKey }); // Pass the google API key to the maps.ejs template
+  res.render('index', { apiKey }); // Pass the google API key to the maps.ejs template
 
 });
 

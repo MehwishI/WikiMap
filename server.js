@@ -33,7 +33,7 @@ app.use(express.static('public'));
 
 const pinApiRoutes = require('./routes/pins-api');
 const mapsApiRoutes = require('./routes/maps-api');
-const mapsRoutes = require('./routes/maps');
+const mapsRoutes = require('./routes');
 const favApiRoutes = require('./routes/favs-api');
 const favRoutes = require('./routes/favs');
 const locApiRoutes= require('./routes/locations-api');
@@ -45,14 +45,12 @@ const locRoutes = require('./routes/locations');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/pins', pinApiRoutes);
 app.use('/api/maps', mapsApiRoutes);
-app.use('/maps', mapsRoutes);
+app.use('/', mapsRoutes);
 app.use('/api/favs', favApiRoutes);
 app.use('/favs', favRoutes);
 app.use('/locs',locRoutes);
 app.use ('/api/locs',locApiRoutes);
-app.use ('/create', mapsApiRoutes)
-
-//app.use ('/locs',locApiRoutes);
+app.use('/create', mapsApiRoutes);
 
 
 // Note: mount other resources here, using the same pattern above

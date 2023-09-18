@@ -35,9 +35,7 @@ $(() => {
 
 
       // Create a new map container with a unique ID based on the map's ID.
-      const mapId = `map-${map.id}`
-
-      console.log(response.maps);
+      const mapId = `map-${map.id}`;
 
       const eachMapContainer = $(`
       <div class="each-map-container">

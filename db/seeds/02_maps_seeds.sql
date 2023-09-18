@@ -1,15 +1,15 @@
 -- Insert table seeds for maps
 
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (1, 'A', 'Vancouver', 49.2578182, -123.2063034);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (2, 'B', 'Edmonton', 53.5267714, -113.6575391);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (3, 'C', 'Ottawa', 45.2443309, -77.0479846);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (4, 'D', 'Saskatoon', 52.1505506, -106.7468098);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (5, 'E', 'Winnipeg', 49.8538852, -97.3176422);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (6, 'F', 'Fredericton', 45.9455518, -66.748651);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (7, 'G', 'St. John', 45.1104158, -66.2066504);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (8, 'H', 'Yellowknife', 62.474917, -114.4913939);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (9, 'I', 'Halifax', 44.7092592, -63.942989);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (10, 'J', 'Iqaluit', 63.7438045, -68.6485592);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (11, 'K', 'Charlottetown', 46.2583009, -63.1473833);
-INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (12, 'L', 'Quebec City', 46.8572585, -71.5097182);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (1, 'A', 'City Parks in Vancouver', 49.28234436800455, -123.10951173632002);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (2, 'B', 'Restaurants in Edmonton', 53.54702366643828, -113.4930045077159);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (3, 'C', 'Cafes in Ottawa', 45.42555265146814, -75.69776845573242);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (4, 'D', 'Popular Attractions in Saskatoon', 52.15821615436476, -106.67097408424814);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (5, 'E', 'Hotels in Winnipeg', 49.894355739417534, -97.10699828532556);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (6, 'F', 'Gas Stations in Fredericton', 45.96352728909164, -66.63762420350011);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (7, 'G', 'Grocery Stores in St. Johns', 47.56090322997023, -52.75256048994337);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (8, 'H', 'Lakes in Yellowknife', 62.453925502505356, -114.36649451882442);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (9, 'I', 'Schools in Halifax', 44.64739201239448, -63.566678050120615);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (10, 'J', 'Banks in Iqaluit', 63.74675300599307, -68.51836963686013);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (11, 'K', 'Churches in Charlottetown', 46.23842809610318, -63.12995253280362);
+INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude) VALUES (12, 'L', 'Spas in Quebec City', 46.813688161586484, -71.19300711436878);
 

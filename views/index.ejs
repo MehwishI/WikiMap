@@ -12,28 +12,79 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
     <link rel="stylesheet" href="/styles/main.css" />
-    <link rel="stylesheet" href="/styles/layout.css" />
+    <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
 
     <script src="/vendor/jquery-3.0.0.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
+    </script>
     <script defer src="/scripts/app.js"></script>
+    <script defer src="/scripts/maps.js"></script>
+
+    <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
+    <style>
+
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #6477b9;
+        color: white;
+        height: 120px;
+        width: 100%;
+        position: fixed;
+        padding: 0px 40px;
+
+      }
+
+      #maps-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-right: 40px;
+      }
+
+      #map-screen {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0px 50px 40px;
+      }
+
+      h2 {
+        padding-top: 200px;
+        padding-left: 40px;
+        margin: 0px;
+      }
+
+
+    </style>
+
   </head>
 
   <body>
     <header>
       <nav>
-        This is my nav bar
-        <ul>
-          <li><a href="/maps">Available Maps</a></li>
-          <li><a href="/maps/create">Create Map</a></li>
-          <li><a href="/favs">My Favourites</a></li>
-        </ul>
+        <h1> Wiki Map </h1>
+        <div class="nav-links">
+          <a href="/maps/create">Create Map</a>
+          <a href="/favs">My Favourites</a>
+            <!-- <form action="/api/users/logout" method="POST">
+              <button type="submit" name="Logout">Logout</button>
+            </form> -->
+          </div>
       </nav>
-    </header>
-    <div class="saved-maps-container"></div>
 
-    <h1>Have fun! 🥔</h1>
-    <form action="/api/users/logout" method="POST">
-      <button type="submit" name="Logout">Logout</button>
-    </form>
+      <h2> List of Available Maps </h2>
+
+    </header>
+
+    <div id="map-screen">
+
+      <div id="maps-container"></div>
+
+      <iframe src="http://localhost:8080/locs/1" width="70%" height="800"></iframe>
+
+    </div>
+
+
   </body>
 </html>

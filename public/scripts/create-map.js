@@ -75,7 +75,7 @@ if ("geolocation" in navigator) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
     let location = { lat: latitude, lng: longitude };
-    position: { lat: -34.397, lng: 150.644; },
+    position: { lat: latitude, lng: longitude; },
     // Update the HTML elements with the latitude and longitude
     // document.getElementById("latitude").textContent = latitude;
     //document.getElementById("longitude").textContent = longitude;
