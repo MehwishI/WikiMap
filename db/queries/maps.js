@@ -11,8 +11,9 @@ const getMaps = () => {
 
 //used by /api/pins/:mapid
 const getPinsByMapId = (id) => {
+  //is this a pool query?
   return db.query(`SELECT * FROM locations
-  WHERE id = locations.id`)
+  WHERE id = locations.id`, [])
     .then(data => {
       return data.rows;
     });
@@ -28,9 +29,10 @@ const getMapById = (id) => {
 };
 //
 
-const createMap = (params) => {
+//POST REQUESTS
+const createMap = (paramsObj) => {
   //may have to adjuste params depending on how we choose to post (form, etc)
-  return db.query(`INSERT INTO maps (user_id, uid, title, latitude, longitude)
+  return db.query(`INSERT INTO maps (user_id, uid, title, center_longitude, center_latitude)
   VALUES ($1, $2, $3, $4, $5)`)
   .then(data => {
     return data.rows[0]
