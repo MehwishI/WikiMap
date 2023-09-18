@@ -13,7 +13,7 @@ app.use(cookieParser())
 
 app.set('view engine', 'ejs');
 
-// Load the logger first so all (static) HTTP requests are logged to STDOUT 
+// Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
@@ -45,7 +45,7 @@ const locRoutes = require('./routes/locations');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/pins', pinApiRoutes);
 app.use('/api/maps', mapsApiRoutes);
-app.use('/maps', mapsRoutes);
+app.use('/', mapsRoutes);
 app.use('/api/favs', favApiRoutes);
 app.use('/favs', favRoutes);
 app.use('/locs',locRoutes);

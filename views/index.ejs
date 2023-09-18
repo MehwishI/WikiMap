@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="/styles/layout.css" />
 
     <script src="/vendor/jquery-3.0.0.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
+    </script>
     <script defer src="/scripts/app.js"></script>
+    <script defer src="/scripts/maps.js"></script>
   </head>
 
   <body>
@@ -23,17 +26,20 @@
       <nav>
         This is my nav bar
         <ul>
-          <li><a href="/maps">Available Maps</a></li>
           <li><a href="/maps/create">Create Map</a></li>
           <li><a href="/favs">My Favourites</a></li>
+            <!-- <form action="/api/users/logout" method="POST">
+              <button type="submit" name="Logout">Logout</button>
+            </form> -->
         </ul>
       </nav>
     </header>
     <div class="saved-maps-container"></div>
 
-    <h1>Have fun! 🥔</h1>
-    <form action="/api/users/logout" method="POST">
-      <button type="submit" name="Logout">Logout</button>
-    </form>
+    <div id="maps-container">
+
+    </div>
+
+
   </body>
 </html>
