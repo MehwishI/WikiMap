@@ -66,6 +66,27 @@ router.post('/', (req, res) =>{
 //   //make an update query
 // });
 
+router.post('/create', (req, res) =>{
+  // const title = req.body.title;
+  const title = "my title"
+  const latitude = req.body.latitude
+  const longitude = req.body.longitude
+  let mapData = {title: title, latitude: latitude, longitude: longitude}
+  mapQueries.createMap(mapData)
+  .then((map) => {
+    res.json(map)//will this correctly convert the returned sql rows to json?
+  }).catch((err)=>{
+    console.log("There was an error creating the map")
+  })
+      // .then((map) => {
+      //   res.json({ map });
+      // })
+      // .catch((err)=>{
+      //   console.log("create map route error: ", err)
+      // })
+
+})
+
 
 router.post('/');
 

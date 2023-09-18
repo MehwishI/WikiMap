@@ -16,7 +16,11 @@ router.get('/create', (req, res) => {
   //   return res.redirect("/")
   //   });
   const id = req.cookies.id
+<<<<<<< HEAD
   //const userID = req.session.userID; //edit this, we are not using session, refer to login route
+=======
+  //const userID = req.suserID; //edit this, we are not using session, refer to login route
+>>>>>>> 6d17ad09ce405bcea72f06ab4d31a5a8c813674c
   //pass the api key to the render
   res.render('maps_new', { apiKey });
   //res.json({apiKey})

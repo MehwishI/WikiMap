@@ -11,3 +11,6 @@ CREATE TABLE locations (
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
+
+
+-- thisi s a test comment
