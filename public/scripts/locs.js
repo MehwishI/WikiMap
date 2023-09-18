@@ -1,12 +1,3 @@
-// const locations = [
-//   { lng: -122.489017,lat: 37.769420,title:'Golden Gate Park' },
-//   { lng: -73.970002, lat:40.785091,title:'Central Park' },
-//   { lng:-74.044502, lat: 40.689247,title:'Statue of Liberty' },
-
-//const { json } = require("express/lib/response");
-
-// ];
-
 function initMap(mapLocs) {
   //console.log("inside initMap");
 
@@ -27,17 +18,18 @@ function initMap(mapLocs) {
 }
 
 window.onload = function () {
+  //remove
   console.log("Window Loaded");
 };
 
 ////
 // This code runs when the DOM is ready
 $(document).ready(function () {
-  console.log("inside ready");
+  //console.log("inside ready");
 
   const mapDiv = $("#mapDiv");
   const mapid = window.location.pathname.split("/")[2]; //spliting the url to get the id parameter
-  console.log("mapid", mapid);
+  //console.log("mapid", mapid);
 
   // Make an AJAX (asynchronous) GET request to the '/api/locs' endpoint on the server.
   $.ajax({
@@ -58,7 +50,7 @@ $(document).ready(function () {
           lat: loc.latitude,
           lng: loc.longitude,
           title: loc.title,
-          //center: loc.lat  , (needs to be updated once map has  lat and long)
+          //center: loc.lat  , (Mehwish says: needs to be updated once a map has  lat and long)
         };
         mapLocs.push(obj);
       }

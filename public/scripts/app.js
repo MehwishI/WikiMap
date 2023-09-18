@@ -2,42 +2,45 @@
 
 //the below is returning json data via console log to api/maps.js
 //I think vasilly said $() was short for document ready....
-$(()=> {
-  $.get("/maps")
-  .then((res) =>{
+
+//make a function called loadmap() , call in doc.ready()
+
+$(() => {
+  //call loadmaps()
+
+  //put everything here
+  //function calls
+
+  $.get("/maps").then((res) => {
     console.log(res);
-    createMap()
+    createMap();
     //google api here?
     //call create map here?
     //jquery load div into body
     //
-  })
+  });
 
-  console.log("test")
+  console.log("test");
 
+  //define createmap function
 
-
-//define createmap function
-const createMap = function(){
-  const $aMap = $(`
+  //rename to rendermaps()
+  const createMap = function () {
+    const $aMap = $(`
     <div>
       This is a map div. Eventually a map will go here.
-    </div>`
-  )
+    </div>`);
 
-  return $aMap
+    return $aMap;
+  };
 
-}
+  const renderMaps = function (placeholder) {
+    let $aMap = createMap(); //rename it to createMapElement()
+    $(".map-container").append($aMap);
+  };
 
-const renderMaps = function(placeholder){
-  let $aMap = createMap()
-  $('.map-container').append($aMap)
-}
-
-
-renderMaps()
-
-})
+  renderMaps(); // call it inside the loadMap()
+});
 
 // const loadMaps = function(){
 
