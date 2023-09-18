@@ -33,7 +33,7 @@ app.use(express.static('public'));
 
 const pinApiRoutes = require('./routes/pins-api');
 const mapsApiRoutes = require('./routes/maps-api');
-const mapsRoutes = require('./routes/maps');
+const mapsRoutes = require('./routes');
 const favApiRoutes = require('./routes/favs-api');
 const favRoutes = require('./routes/favs');
 const locApiRoutes= require('./routes/locations-api');
