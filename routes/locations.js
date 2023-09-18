@@ -5,7 +5,7 @@ const apiKey = process.env.GOOGLE_MAPS_API_KEY;
 
 
 router.get('/', (req, res) => {
-  res.render('locs',{ apiKey });
+  res.render('locs-old',{ apiKey });
 
 });
 
