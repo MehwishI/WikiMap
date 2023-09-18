@@ -1,17 +1,9 @@
 const db = require('../connection');
 
 const getMaps = () => {
-  return db.query(`SELECT
-  maps.id,
-  maps.user_id,
-  maps.uid,
-  locations.title AS location_title,
-  locations.description,
-  locations.longitude,
-  locations.latitude
+  return db.query(`SELECT *
   FROM maps
-  JOIN locations
-  ON maps.id = locations.map_id;`)
+  `)
     .then(data => {
       return data.rows;//jn returning an array of objects
     });
@@ -38,7 +30,7 @@ const getMapById = (id) => {
 
 const createMap = (params) => {
   //may have to adjuste params depending on how we choose to post (form, etc)
-  return db.query(`INSERT INTO maps (user_id, uid, title, center_longitude, center_latitude)
+  return db.query(`INSERT INTO maps (user_id, uid, title, latitude, longitude)
   VALUES ($1, $2, $3, $4, $5)`)
   .then(data => {
     return data.rows[0]

@@ -33,14 +33,21 @@ $(() => {
     // Loop through the array of available maps in the response and create a map for each.
     for (const map of response.maps) {
 
+
       // Create a new map container with a unique ID based on the map's ID.
       const mapId = `map-${map.id}`
+
+      console.log(response.maps);
 
       const eachMapContainer = $(`
       <div class="each-map-container">
         <div id="${mapId}" class="map">
         </div>
+<<<<<<< HEAD
         <a href="/locs/${map.id}"> ${map.location_title} </a>
+=======
+        <h3> <a href="/api/locs/${map.id}"> ${map.title} </h3> </a>
+>>>>>>> 6d17ad09ce405bcea72f06ab4d31a5a8c813674c
       </div>`);
 
 
@@ -48,7 +55,7 @@ $(() => {
       $($mapsContainer).append(eachMapContainer);
 
       // Define the location for each map
-      const location = { lat: map.latitude, lng: map.longitude };
+      const location = { lat: map.center_latitude, lng: map.center_longitude };
 
       // Call the initMap function to initialize the Google Map for this location
       initMap(location, mapId);
