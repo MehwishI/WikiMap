@@ -35,14 +35,6 @@ router.post('/', (req, res) =>{
   }).catch((err)=>{
     console.log("There was an error creating the map")
   })
-      // .then((map) => {
-      //   res.json({ map });
-      // })
-      // .catch((err)=>{
-      //   console.log("create map route error: ", err)
-      // })
-
-})
 
 //edit/update map
 //Jeremy - I had this debate with myself if it would be get or post or a combo>
