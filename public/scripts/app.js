@@ -13,7 +13,7 @@ $(() => {
 
   $.get("/maps").then((res) => {
     console.log(res);
-    createMap();
+    createMap(); //refers to this function on this page, not the query page, confusing change it
     //google api here?
     //call create map here?
     //jquery load div into body
