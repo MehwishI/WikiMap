@@ -1,47 +1,55 @@
 
-$(document).ready(()=>{
+$(document).ready(() => {
 
-//current the create maps get route renders the create maps page. I need to change this to render the index but add a form and create button
+  //current the create maps get route renders the create maps page. I need to change this to render the index but add a form and create button
+  //is this caling the route
+  $.get("/").then((res) => {
+    console.log("main page loaded via jquery");
+    let $createMapButton = createMapButton();
+    let $titleForm = createTitleForm();
 
-$.get("/").then((res) => {
-  console.log("main page loaded via jquery")
-  let $createMapButton = createMapButton()
-  let $titleForm = createTitleForm()
-  //I need to create a controls containter/div below the  map container to append these to
-  // const createMapButton = function () {
-  //   const $aButton = $(`<button>Create Map<button>`)
-  // }
-  //need to append the button to a specific element, which one
-  return $aButton
-})
 
-$.get("/").then((res)=> {
-  console.log("create form")
-  //need to know which element to append this to
-})
+    $('#createMapControlsContainer').append()
+    //I need to create a controls containter/div below the  map container to append these to
+    // const createMapButton = function () {
+    //   const $aButton = $(`<button>Create Map<button>`)
+    // }
+    //need to append the button to a specific element, which one
+    return $aButton;
 
-//creatmap button function
-const createMapButton = function () {
-  const aButton = $(`<button class"button" id="createMapButton">Create Map<button>`)
-  return aButton
-}
-c
-const createTitleForm = function() {
-  const titleForm = $(`
+
+
+
+
+  });
+
+  $.get("/").then((res) => {
+    console.log("create form");
+    //need to know which element to append this to
+  });
+
+  //creatmap button function
+  const createMapButton = function () {
+    const aButton = $(`<button class"button" id="createMapButton">Create Map<button>`);
+    return aButton;
+  };
+  c;
+  const createTitleForm = function () {
+    const titleForm = $(`
   <form class="mapTitle" id="mapTitle>
   <label for="maptitle">Enter a title for your map</label>
-  <form>`)
+  <form>`);
 
-  return titleForm
-}
+    return titleForm;
+  };
 
 
-}) //end document ready
+}); //end document ready
 
 //STEP 1, GENERATE A HARD CODE MAPE
 
-const generateStartMap = function init(map){
-  let location = {lat: 48.442954 , long: -89.220905}
+const generateStartMap = function init(map) {
+  let location = { lat: 48.442954, long: -89.220905 };
   //let map = new google.maps.Map(document.getElementById(#))
   const $mapsContainer = $('#maps-container');
   let $startMap = new google.maps.Map($mapsContainer, {
@@ -49,31 +57,31 @@ const generateStartMap = function init(map){
     center: location
   });
 
-//GOOGLE_MAPS_API_KEY=AIzaSyBTlH2zUp3AWtcEogHcP0Y28fjxX_2Gv0k
+  //GOOGLE_MAPS_API_KEY=AIzaSyBTlH2zUp3AWtcEogHcP0Y28fjxX_2Gv0k
   //grab map, append to mapscontainer .....
 
-}
+};
 
 
-79244578, 97886802
+79244578, 97886802;
 
 //STEP 2 append map
 //step 3, add geolocation
 
 
 if ("geolocation" in navigator) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-//       // Get the latitude and longitude from the position object
-let latitude = position.coords.latitude;
-let longitude = position.coords.longitude;
-let location = {lat: latitude, lng: longitude }
-position: { lat: -34.397, lng: 150.644 },
-// Update the HTML elements with the latitude and longitude
-// document.getElementById("latitude").textContent = latitude;
-//document.getElementById("longitude").textContent = longitude;
-});
+  navigator.geolocation.getCurrentPosition(function (position) {
+    //       // Get the latitude and longitude from the position object
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    let location = { lat: latitude, lng: longitude };
+    position: { lat: -34.397, lng: 150.644; },
+    // Update the HTML elements with the latitude and longitude
+    // document.getElementById("latitude").textContent = latitude;
+    //document.getElementById("longitude").textContent = longitude;
+  });
 } else {
-alert("Geolocation is not supported in your browser.");
+  alert("Geolocation is not supported in your browser.");
 }
 
 ////------------------------------------------/////
@@ -111,7 +119,7 @@ alert("Geolocation is not supported in your browser.");
 // };
 
 
- // This code runs when the DOM is ready
+// This code runs when the DOM is ready
 // $(() => {
 
 //   // //const $createMapContainer = $('#create-map-container');
