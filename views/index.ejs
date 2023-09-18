@@ -36,14 +36,23 @@
 
       }
 
-      #available-maps{
-        margin: 150px 40px;
-
+      #maps-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-right: 40px;
       }
 
-      #maps-container {
-        width: 30%;
-        padding-right: 40px;
+      #map-screen {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0px 50px 40px;
+      }
+
+      h2 {
+        padding-top: 200px;
+        padding-left: 40px;
+        margin: 0px;
       }
 
 
@@ -63,16 +72,18 @@
             </form> -->
           </div>
       </nav>
-    </header>
 
-    <div id="available-maps">
       <h2> List of Available Maps </h2>
 
-      <div id="maps-container">
+    </header>
 
-      </div>
+    <div id="map-screen">
+
+      <div id="maps-container"></div>
+
+      <iframe src="http://localhost:8080/locs/1" width="70%" height="800"></iframe>
+
     </div>
-
 
 
   </body>
