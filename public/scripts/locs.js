@@ -1,3 +1,5 @@
+
+
 function initMap(mapLocs) {
   // Check if mapLocs is an empty array or doesn't exist
   if (!mapLocs || mapLocs.length === 0) {
@@ -13,16 +15,36 @@ function initMap(mapLocs) {
     center: mapCenter
   });
 
+
   for (let loc of mapLocs) {
 
-    var marker = new google.maps.Marker({
+    let marker = new google.maps.Marker({
       position: new google.maps.LatLng(loc.lat, loc.lng),
       map: map,
-      title: loc.title
+      title: loc.title,
+      animation: google.maps.Animation.DROP
     });
     marker.setMap(map);
+
+    //Toggle the animation of a marker between bouncing and not bouncing when clicked on
+    marker.addListener("click", () => {
+      toggleBounce(marker);
+    });
+  }
+
+
+};
+
+//Toggle the animation of a marker between bouncing and not bouncing
+
+function toggleBounce(marker) {
+  if (marker.getAnimation() !== null) { //means the marker is currently animated.
+    marker.setAnimation(null); // stops it from bouncing
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE); // if not currently animated, make it bounce
   }
 };
+
 
 
 // This code runs when the DOM is ready
@@ -51,7 +73,11 @@ $(() => {
           lng: loc.longitude,
           title: loc.title,
           description: loc.description,
-          center: { lat: loc.center_latitude, lng: loc.center_longitude }
+          center: { lat: loc.center_latitude, lng: loc.center_longitude },
+          draggable: true,
+          clickable: true,
+          animation: google.maps.Animation.DROP,
+
         };
 
         mapLocs.push(locationDetails);
