@@ -38,13 +38,15 @@ function initMap(mapLocs) {
 //Toggle the animation of a marker between bouncing and not bouncing
 
 function toggleBounce(marker) {
-  if (marker.getAnimation() !== null) { //means the marker is currently animated.
-    marker.setAnimation(null); // stops it from bouncing
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE); // if not currently animated, make it bounce
-  }
-};
+  if (marker.getAnimation() === null) { // if marker is not animated, make it bounce
+    marker.setAnimation(google.maps.Animation.BOUNCE);
 
+    // Stop bouncing after  1 sec
+    setTimeout(() => {
+      marker.setAnimation(null);
+    }, 1000);
+  }
+}
 
 
 // This code runs when the DOM is ready
