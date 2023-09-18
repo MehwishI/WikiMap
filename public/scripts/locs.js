@@ -17,12 +17,7 @@ function initMap(mapLocs) {
   }
 }
 
-window.onload = function () {
-  //remove
-  console.log("Window Loaded");
-};
 
-////
 // This code runs when the DOM is ready
 $(document).ready(function () {
   //console.log("inside ready");
