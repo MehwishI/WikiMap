@@ -38,6 +38,44 @@ const createTitleForm = function() {
 
 }) //end document ready
 
+//STEP 1, GENERATE A HARD CODE MAPE
+
+const generateStartMap = function init(map){
+  let location = {lat: 48.442954 , long: -89.220905}
+  //let map = new google.maps.Map(document.getElementById(#))
+  const $mapsContainer = $('#maps-container');
+  let $startMap = new google.maps.Map($mapsContainer, {
+    zoom: 4,
+    center: location
+  });
+
+//GOOGLE_MAPS_API_KEY=AIzaSyBTlH2zUp3AWtcEogHcP0Y28fjxX_2Gv0k
+  //grab map, append to mapscontainer .....
+
+}
+
+
+79244578, 97886802
+
+//STEP 2 append map
+//step 3, add geolocation
+
+
+if ("geolocation" in navigator) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+//       // Get the latitude and longitude from the position object
+let latitude = position.coords.latitude;
+let longitude = position.coords.longitude;
+let location = {lat: latitude, lng: longitude }
+position: { lat: -34.397, lng: 150.644 },
+// Update the HTML elements with the latitude and longitude
+// document.getElementById("latitude").textContent = latitude;
+//document.getElementById("longitude").textContent = longitude;
+});
+} else {
+alert("Geolocation is not supported in your browser.");
+}
+
 ////------------------------------------------/////
 //Jeremy  (
 //load up map by device location
@@ -55,20 +93,7 @@ const createTitleForm = function() {
 // let location = ""
 
 // // get gelocation from browser
-// if ("geolocation" in navigator) {
-//           navigator.geolocation.getCurrentPosition(function(position) {
-// //       // Get the latitude and longitude from the position object
-//         let latitude = position.coords.latitude;
-//         let longitude = position.coords.longitude;
-//         let location = {lat: latitude, lng: longitude }
-//       position: { lat: -34.397, lng: 150.644 },
-//       // Update the HTML elements with the latitude and longitude
-//       // document.getElementById("latitude").textContent = latitude;
-//       //document.getElementById("longitude").textContent = longitude;
-//   });
-// } else {
-//   alert("Geolocation is not supported in your browser.");
-// }
+
 
 
 //load map using geolocation coordinates
