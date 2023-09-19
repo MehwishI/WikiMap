@@ -11,21 +11,43 @@ $(() => {
   // const map = new google.maps.Map($($mapsContainer)[0], {center: {lat: 50, lng: 92}, zoom: 5})
   // resetMap(map)
 
+  //get map data/send to craete map post route
+
+  //click event
 
 
+    $("#save-map-button").click(function() {
+
+      let mapdata = {}
+      let center = map.getCenter()
+      let zoom = map.getZoom()
+      console.log(center)
+      //alert("center retrieved", center)
+      console.log("zoom retreived", zoom)
+      console.log("map in click button: ", map)
+      //AJAX post request here to create post
+      $.post('url', mapdata, function(response){
+        //alert ?
+      }
+ )
 });
+
+});//end document ready
+
 
 
 let map;
 async function initMap(){
   const {Map} =await google.maps.importLibrary('maps');
   map = new Map(document.getElementById("maps-container"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
+    center: { lat: 48.442, lng: -89.221 },
+    zoom: 10,
   });
 }
 
 initMap()
+
+console.log("map after initialization: ", map)
 
   // $('reset').on('click', resetMap)
 console.log("after")
@@ -56,6 +78,8 @@ const resetMap = function(map){
   return map
 
 }
+
+
 
 
 
