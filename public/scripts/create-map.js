@@ -8,10 +8,25 @@ $(() => {
   //initmap()
 
   // const initmap = function(){
-    const map = new google.maps.Map($($mapsContainer)[0], {center: {lat: 50, lng: 92}, zoom: 5})
-    resetMap(map)
+  // const map = new google.maps.Map($($mapsContainer)[0], {center: {lat: 50, lng: 92}, zoom: 5})
+  // resetMap(map)
+
+
 
 });
+
+
+let map;
+async function initMap(){
+  const {map} =await google.maps.importLibrary('maps');
+  map = new Map(document.getElementById("maps-container"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
+
+initMap()
+
   // $('reset').on('click', resetMap)
 console.log("after")
   // //click event to capture data from map and send to map POST route create
@@ -21,7 +36,7 @@ console.log("after")
 const showCreateMapForm = function(){
   alert("showing the form")
  $('.create-map-form').removeClass("hidden")
- //$('new-map').on('click', showCreateMapForm);
+ console.log('show form')
 }
 
 //create new localized map

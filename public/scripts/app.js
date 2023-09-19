@@ -10,19 +10,6 @@ $(() => {
   console.log(Start)
   $('.new-map').on('click', showCreateMapForm);
 
-  //put everything here
-  //function calls
-
-
-//make load functios instead of below
-  // $.get("/maps").then((res) => {
-  //   console.log(res);
-  //   createMap(); //refers to this function on this page, not the query page, confusing change it
-  //   //google api here?
-  //   //call create map here?
-  //   //jquery load div into body
-  //   //
-  // });
 
   console.log("test");
 
