@@ -57,6 +57,14 @@ $(() => {
 
   });
 
+   // Event listener for the homepage link
+  const homeLink = document.getElementById('home-link');
+
+    if (homeLink) {
+      homeLink.addEventListener('click', function () {
+        window.location.href = '/';
+      });
+    }
 
  });
 
