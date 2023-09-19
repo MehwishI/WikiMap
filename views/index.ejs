@@ -33,7 +33,6 @@
 
     <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
     <style>
-
       nav {
         display: flex;
         align-items: center;
@@ -44,7 +43,6 @@
         width: 100%;
         position: fixed;
         padding: 0px 40px;
-
       }
 
       #maps-container {
@@ -65,27 +63,23 @@
         padding-left: 40px;
         margin: 0px;
       }
-
-
     </style>
-
   </head>
 
   <body>
     <header>
       <nav>
-        <h1> Wiki Map </h1>
+        <h1>Wiki Map</h1>
         <div class="nav-links">
           <button class="new-map">Create New Map</button>
           <a href="/favs">My Favourites</a>
-            <!-- <form action="/api/users/logout" method="POST">
+          <!-- <form action="/api/users/logout" method="POST">
               <button type="submit" name="Logout">Logout</button>
             </form> -->
-          </div>
+        </div>
       </nav>
 
-      <h2> List of Available Maps </h2>
-
+      <h2>List of Available Maps</h2>
     </header>
 
     <div id="maps-container"></div>
