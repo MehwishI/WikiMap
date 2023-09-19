@@ -18,7 +18,7 @@ $(() => {
 
 let map;
 async function initMap(){
-  const {map} =await google.maps.importLibrary('maps');
+  const {Map} =await google.maps.importLibrary('maps');
   map = new Map(document.getElementById("maps-container"), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 8,
@@ -33,11 +33,11 @@ console.log("after")
   // $('new-map').on('click')
 
 
-const showCreateMapForm = function(){
-  alert("showing the form")
- $('.create-map-form').removeClass("hidden")
- console.log('show form')
-}
+// const showCreateMapForm = function(){
+//   alert("showing the form")
+//  $('.create-map-form').removeClass("hidden")
+//  console.log('show form')
+// }
 
 //create new localized map
 const resetMap = function(map){
