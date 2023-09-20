@@ -5,15 +5,6 @@ $(() => {
   const $mapsContainer = $('#maps-container');
   console.log("logging maps container", $mapsContainer);
 
-  //initmap()
-
-  // const initmap = function(){
-  // const map = new google.maps.Map($($mapsContainer)[0], {center: {lat: 50, lng: 92}, zoom: 5})
-  // resetMap(map)
-
-  //get map data/send to craete map post route
-
-  //click event
 
 
   let map;
@@ -26,6 +17,17 @@ $(() => {
 
     resetMap(map);
     //addCenterMarker(map)
+
+
+  google.maps.event.addListener(map, "click", function(event) {
+    // Get the latitude and longitude from the click event
+    console.log("click event fired")
+    const lat = event.latLng.lat();
+    const lng = event.latLng.lng();
+    console.log("Latitude: " + lat + "\nLongitude: " + lng)
+
+
+  });
   }
 
   initMap();
@@ -80,14 +82,15 @@ $(() => {
 
   }
 
-  google.maps.event.addListener(map, "click", function(event) {
-    // Get the latitude and longitude from the click event
-    const lat = event.latLng.lat();
-    const lng = event.latLng.lng();
+  // google.maps.event.addListener(map, "click", function(event) {
+  //   // Get the latitude and longitude from the click event
+  //   console.log("click event fired")
+  //   const lat = event.latLng.lat();
+  //   const lng = event.latLng.lng();
+  //   console.log("Latitude: " + lat + "\nLongitude: " + lng)
 
-    // Do something with the latitude and longitude, e.g., display it
-    alert("Latitude: " + lat + "\nLongitude: " + lng);
-  });
+
+  // });
 
   // //might be a scope issue with addMarker here
   // map.addlistener('click', (addMarker) => {
