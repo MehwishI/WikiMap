@@ -6,7 +6,7 @@ $(() => {
   console.log("logging maps container", $mapsContainer);
 
 
-
+  let markersList = [];
   let map;
   async function initMap() {
     const { Map } = await google.maps.importLibrary('maps');
@@ -18,7 +18,7 @@ $(() => {
     resetMap(map);
     //addCenterMarker(map)
 
-    let markersList = []
+    //let markersList = []
     google.maps.event.addListener(map, "click", function (event) {
 
       // Get the latitude and longitude from the click event
@@ -35,8 +35,8 @@ $(() => {
         title: "Example marker",
       });
 
-      markersList.push(marker)
-      console.log("Markers list: ", markersList)
+      markersList.push(marker);
+      console.log("Markers list: ", markersList);
 
 
     }); //end event listenr
@@ -46,11 +46,11 @@ $(() => {
 
 
   $("#save-map-button").click(function (event) {
-    event.preventDefault()
+    event.preventDefault();
     let mapData = {};
 
     let title = $('#input-title').val();
-    console.log("retrieved title: ",title)
+    console.log("retrieved title: ", title);
 
     let center = map.getCenter();
     //let user_id = cookies.user_id
@@ -70,9 +70,33 @@ $(() => {
 
     //AJAX post request here to create post
     $.post('/api/maps/', mapData)
-      .then((response) => {
+      .then((newMapData) => {
+
+        //debugging
+
         console.log("successful post to create map");
-        console.log("Response data: ", response);
+        console.log("Response data: ", newMapData);
+        console.log("examine marker internal position", markersList[0].internalPosition.lat());
+        console.log("markers list: ", markersList);
+
+        //create and load object with locations to send to route/query
+
+        const dataToLocations = {};
+
+        dataToLocations['title'] = newMapData['title'];
+        dataToLocations['description'] = "demo description";
+        dataToLocations['mao_id'] = newMapData['id'];
+        dataToLocations['latitude'] = markersList[0].internalPosition.lat();
+        dataToLocations['longitude'] = markersList[0].internalPosition.lng();
+
+
+        $.post('the correct url once I figure this out', dataToLocations)
+          .then((newFavouritesData) => {
+            console.log("new favourites returned data", newFavouritesData);
+          }).catch((error) => {
+            console.log("Error messge from post to favourites", error);
+          });
+
       })
       .catch((error) => {
         console.log("UNsuccesful post reques to create route", error);

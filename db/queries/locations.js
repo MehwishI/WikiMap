@@ -22,5 +22,14 @@ const getLocsByMapId = (mapid) => {
     });
 };
 
+
+//addToLocations (inbound from create map embeded post request)
+const addLocations = (dataAsObj) => {
+
+  
+
+}
+
+
 module.exports = { getLocations, getLocsByMapId };
 
