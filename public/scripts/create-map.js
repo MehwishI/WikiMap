@@ -85,7 +85,7 @@ $(() => {
 
         dataToLocations['title'] = newMapData['title'];
         dataToLocations['description'] = "demo description";
-        dataToLocations['mao_id'] = newMapData['id'];
+        dataToLocations['map_id'] = newMapData['id'];
         dataToLocations['latitude'] = markersList[0].internalPosition.lat();
         dataToLocations['longitude'] = markersList[0].internalPosition.lng();
 
@@ -122,26 +122,6 @@ $(() => {
     });
 
   };
-
-  // google.maps.event.addListener(map, "click", function(event) {
-  //   // Get the latitude and longitude from the click event
-  //   console.log("click event fired")
-  //   const lat = event.latLng.lat();
-  //   const lng = event.latLng.lng();
-  //   console.log("Latitude: " + lat + "\nLongitude: " + lng)
-
-
-  // });
-
-  // //might be a scope issue with addMarker here
-  // map.addlistener('click', (addMarker) => {
-  //   ///addMarker()
-  //   //get lat and long
-  //   //addMarker()
-
-  // })
-
-
 
 
 });//end document ready
