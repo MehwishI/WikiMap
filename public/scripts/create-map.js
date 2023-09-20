@@ -18,17 +18,28 @@ $(() => {
     resetMap(map);
     //addCenterMarker(map)
 
+    let markersList = []
+    google.maps.event.addListener(map, "click", function (event) {
 
-  google.maps.event.addListener(map, "click", function(event) {
-    // Get the latitude and longitude from the click event
-    console.log("click event fired")
-    const lat = event.latLng.lat();
-    const lng = event.latLng.lng();
-    console.log("Latitude: " + lat + "\nLongitude: " + lng)
+      // Get the latitude and longitude from the click event
+      console.log("click event fired");
+      const lat = event.latLng.lat();
+      const lng = event.latLng.lng();
+      console.log("Latitude: " + lat + "\nLongitude: " + lng);
+
+      //create marker
+      const marker = new google.maps.Marker({
+        position: { lat: lat, lng: lng },
+        map: map,
+        title: "Example marker",
+      });
+
+      markersList.push(marker)
+      console.log("Markers list: ", markersList)
 
 
-  });
-  }
+    }); //end event listenr
+  }//end craete map
 
   initMap();
 
@@ -72,7 +83,7 @@ $(() => {
   //   });
   // }
 
-  const addMarker = function(latLng){
+  const addMarker = function (latLng) {
 
     new google.maps.Marker({
       position: latLng,
@@ -80,7 +91,7 @@ $(() => {
       title: "My magic marker",
     });
 
-  }
+  };
 
   // google.maps.event.addListener(map, "click", function(event) {
   //   // Get the latitude and longitude from the click event
