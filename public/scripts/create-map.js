@@ -23,6 +23,7 @@ $(() => {
 
       // Get the latitude and longitude from the click event
       console.log("click event fired");
+      //note, got the lat() and lng() methods from stackoverflow
       const lat = event.latLng.lat();
       const lng = event.latLng.lng();
       console.log("Latitude: " + lat + "\nLongitude: " + lng);
@@ -44,8 +45,12 @@ $(() => {
   initMap();
 
 
-  $("#save-map-button").click(function () {
+  $("#save-map-button").click(function (event) {
+    event.preventDefault()
     let mapData = {};
+
+    let title = $('#input-title').val();
+    console.log("retrieved title: ",title)
 
     let center = map.getCenter();
     //let user_id = cookies.user_id
