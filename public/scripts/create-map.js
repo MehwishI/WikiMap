@@ -1,7 +1,7 @@
 
 $(() => {
   //call loadmaps()
-  console.log("document ready")
+  console.log("document ready");
   const $mapsContainer = $('#maps-container');
   console.log("logging maps container", $mapsContainer);
 
@@ -16,85 +16,71 @@ $(() => {
   //click event
 
 
-let map;
-async function initMap(){
-  const {Map} =await google.maps.importLibrary('maps');
-  map = new Map(document.getElementById("maps-container"), {
-    center: { lat: 48.442, lng: -89.221 },
-    zoom: 10,
-  });
-}
+  let map;
+  async function initMap() {
+    const { Map } = await google.maps.importLibrary('maps');
+    map = new Map(document.getElementById("maps-container"), {
+      center: { lat: 51.00, lng: 0.221 },
+      zoom: 10,
+    });
 
-initMap()
+    resetMap(map);
+  }
 
-$("#save-map-button").click(function() {
-  let mapData = {}
-
-  let center = map.getCenter()
-  //let user_id = cookies.user_id
-  //console.log("user id:" ,user_id)
-  //add to map data object
-  //mapData['user_id'] = ""
-  //hard code the UID as I dont know what it is
-  mapData["uid"] = 1
-  //hard code the title until I can figure out how to capture it
-  mapData['title'] = "testTitle"
-  mapData['center_latitude'] = center.lat()
-  mapData['center_longitude'] = center.lng()
-  mapData['zoom_level'] = map.getZoom()
-
-  console.log("Map Data Obj: ", mapData)
+  initMap();
 
 
+  $("#save-map-button").click(function () {
+    let mapData = {};
 
-  //AJAX post request here to create post
-  $.post('/api/maps/', mapData)
-    .then(()=>{
-      console.log("successful post to create map")
-    })
-    .catch(()=>{
-      console.log("UNsuccesful post reques to create route")
-    })
-  }//end save map button
-)}
+    let center = map.getCenter();
+    //let user_id = cookies.user_id
+    //console.log("user id:" ,user_id)
+    //add to map data object
+    //mapData['user_id'] = ""
+    //hard code the UID as I dont know what it is
+    mapData["uid"] = 1;
+    //hard code the title until I can figure out how to capture it
+    mapData['title'] = "testTitle";
+    mapData['center_latitude'] = center.lat();
+    mapData['center_longitude'] = center.lng();
+    mapData['zoom_level'] = map.getZoom();
 
-);//end document ready
-
-//console.log("map after initialization: ", map)
-
-  // $('reset').on('click', resetMap)
-//console.log("after")
-  // //click event to capture data from map and send to map POST route create
-  // $('new-map').on('click')
+    console.log("Map Data Obj: ", mapData);
 
 
-// const showCreateMapForm = function(){
-//   alert("showing the form")
-//  $('.create-map-form').removeClass("hidden")
-//  console.log('show form')
-// }
+    //AJAX post request here to create post
+    $.post('/api/maps/', mapData)
+      .then(() => {
+        console.log("successful post to create map");
+      })
+      .catch(() => {
+        console.log("UNsuccesful post reques to create route");
+      });
+  }); //end save map button
+
+
+
+});//end document ready
+
 
 //create new localized map
-const resetMap = function(map){
+const resetMap = function (map) {
 
   // const map = new google.maps.Map(container, {zoom: 5})
 
   //find current location
-  navigator.geolocation.getCurrentPosition(position =>{
-    const lat = position.coords.latitude
-    const long = position.coords.longitude
-    const center = {lat: lat, lng: long}
-    map.setCenter(center)
+  navigator.geolocation.getCurrentPosition(position => {
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
+    const center = { lat: lat, lng: long };
+    map.setCenter(center);
 
-  })
+  });
 
-  return map
+  return map;
 
-}
-
-
-
-
+};
 
 //function to add event listener to map object
 
