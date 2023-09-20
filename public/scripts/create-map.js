@@ -25,6 +25,7 @@ $(() => {
     });
 
     resetMap(map);
+    //addCenterMarker(map)
   }
 
   initMap();
@@ -59,6 +60,44 @@ $(() => {
       });
   }); //end save map button
 
+  //WORKS ONLY ON INITIAL MAP NOT RESET MAP
+  // const addCenterMarker = function(map){
+  //   let center = map.getCenter();
+  //   new google.maps.Marker({
+  //     position: center,
+  //     map: map,
+  //     title: "Center Marker",
+  //   });
+  // }
+
+  const addMarker = function(latLng){
+
+    new google.maps.Marker({
+      position: latLng,
+      map: map,
+      title: "My magic marker",
+    });
+
+  }
+
+  google.maps.event.addListener(map, "click", function(event) {
+    // Get the latitude and longitude from the click event
+    const lat = event.latLng.lat();
+    const lng = event.latLng.lng();
+
+    // Do something with the latitude and longitude, e.g., display it
+    alert("Latitude: " + lat + "\nLongitude: " + lng);
+  });
+
+  // //might be a scope issue with addMarker here
+  // map.addlistener('click', (addMarker) => {
+  //   ///addMarker()
+  //   //get lat and long
+  //   //addMarker()
+
+  // })
+
+
 
 
 });//end document ready
@@ -75,6 +114,7 @@ const resetMap = function (map) {
     const long = position.coords.longitude;
     const center = { lat: lat, lng: long };
     map.setCenter(center);
+    //addCenterMarker(map)
 
   });
 
