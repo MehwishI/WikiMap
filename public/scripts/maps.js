@@ -37,12 +37,30 @@ function initMapLoc(mapLocs) {
       title: loc.title,
       animation: google.maps.Animation.DROP,
     });
-    marker.setMap(map);
+
+
+    // Create an InfoWindow for each marker
+    const infoWindow = new google.maps.InfoWindow({
+      content: `<h3> ${loc.title}</h3><p>${loc.description}</p>`,
+    });
+
+    //Display infoWindow on mouseover
+    marker.addListener("mouseover", () => {
+      infoWindow.open(map, marker);
+    });
+
+    //Hide infoWindow on mouseout
+    marker.addListener("mouseout", () => {
+      infoWindow.close();
+    });
+
 
     //Toggle the animation of a marker between bouncing and not bouncing when clicked on
     marker.addListener("click", () => {
       toggleBounce(marker);
     });
+
+    marker.setMap(map);
   }
 }
 
