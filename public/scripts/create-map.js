@@ -1,7 +1,7 @@
 
 $(() => {
   //call loadmaps()
-  console.log("hello")
+  console.log("document ready")
   const $mapsContainer = $('#maps-container');
   console.log("logging maps container", $mapsContainer);
 
@@ -16,26 +16,6 @@ $(() => {
   //click event
 
 
-    $("#save-map-button").click(function() {
-
-      let mapdata = {}
-      let center = map.getCenter()
-      let zoom = map.getZoom()
-      console.log(center)
-      //alert("center retrieved", center)
-      console.log("zoom retreived", zoom)
-      console.log("map in click button: ", map)
-      //AJAX post request here to create post
-      $.post('url', mapdata, function(response){
-        //alert ?
-      }
- )
-});
-
-});//end document ready
-
-
-
 let map;
 async function initMap(){
   const {Map} =await google.maps.importLibrary('maps');
@@ -47,10 +27,43 @@ async function initMap(){
 
 initMap()
 
-console.log("map after initialization: ", map)
+$("#save-map-button").click(function() {
+  let mapData = {}
+
+  let center = map.getCenter()
+  //let user_id = cookies.user_id
+  //console.log("user id:" ,user_id)
+  //add to map data object
+  //mapData['user_id'] = ""
+  //hard code the UID as I dont know what it is
+  mapData["uid"] = 1
+  //hard code the title until I can figure out how to capture it
+  mapData['title'] = "testTitle"
+  mapData['center_latitude'] = center.lat()
+  mapData['center_longitude'] = center.lng()
+  mapData['zoom_level'] = map.getZoom()
+
+  console.log("Map Data Obj: ", mapData)
+
+
+
+  //AJAX post request here to create post
+  $.post('/api/maps', mapData)
+    .then(()=>{
+      console.log("successful post to create map")
+    })
+    .catch(()=>{
+      console.log("UNsuccesful post reques to create route")
+    })
+  }//end save map button
+)}
+
+);//end document ready
+
+//console.log("map after initialization: ", map)
 
   // $('reset').on('click', resetMap)
-console.log("after")
+//console.log("after")
   // //click event to capture data from map and send to map POST route create
   // $('new-map').on('click')
 

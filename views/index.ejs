@@ -26,8 +26,8 @@
     <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=console.debug"> -->
     <!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTlH2zUp3AWtcEogHcP0Y28fjxX_2Gv0k&callback=initMap"></script> -->
 
-    <script defer src="/scripts/app.js"></script>
-    <script src="/scripts/create-map.js"></script>
+    <script defer src="/scripts/app.js" ></script>
+    <script defer src="/scripts/create-map.js" ></script>
     <!-- <script defer src="/scripts/maps.js"></script> -->
 
     <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
@@ -85,11 +85,12 @@
 
 
     <div class="create-map-form hidden" style="height: 400px">
-      <form>
+      <form id="map-title-form">
         //add input and button etc
         <input/>
-        <button type="submit" class="save-map-button" id="save-map-button">Save Map</button>
+        <!-- <button type="click" class="save-map-button" id="save-map-button">Save Map</button> -->
       </form>
+      <button class="save-map-button" id="save-map-button">Save Map</button>
       <button type="click" id="reset" class="map-reset-button">Reset</button>
     </div>
   </body>
