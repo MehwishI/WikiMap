@@ -21,22 +21,32 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) =>{
   // const title = req.body.title;
   console.log("create post route triggered")
-  console.log(req.body)
+  console.log("req body from post route", req.body)
   const user_id = req.cookies.user_id;
   const uid = req.body.uid;
   const title = req.body.title;
-  const latitude = req.body.latitude
-  const longitude = req.body.longitude
-  let mapData = {user_id: user_id, uid: uid, title: title, center_latitude: latitude, center_longitude: longitude}
+  const latitude = req.body.center_latitude
+  const longitude = req.body.center_longitude
+  const zoom_level = req.body.zoom_level
+  let mapData = {user_id: user_id, uid: uid, title: title, center_latitude: latitude, center_longitude: longitude, zoom_level: zoom_level}
   mapQueries.createMap(mapData)
   .then((map) => {
     //res.json(map)//will this correctly convert the returned sql rows to json?
-    res.redirect('/create');
+    console.log(res)
+    //would I conver tot json here
+    //res.redirect('/create');
+    res.json(map)
   }).catch((err)=>{
     console.log("There was an error creating the map")
   })
 
 });
+
+//I think I might have a conflict with routes if I dont' change the url
+
+// router.post('/', (req, res)=> {
+//   console.log(post to favourites)
+// })
 
 //edit/update map
 //Jeremy - I had this debate with myself if it would be get or post or a combo>

@@ -60,7 +60,7 @@ $(() => {
     //hard code the UID as I dont know what it is
     mapData["uid"] = 1;
     //hard code the title until I can figure out how to capture it
-    mapData['title'] = "testTitle";
+    mapData['title'] = title;
     mapData['center_latitude'] = center.lat();
     mapData['center_longitude'] = center.lng();
     mapData['zoom_level'] = map.getZoom();
@@ -70,11 +70,12 @@ $(() => {
 
     //AJAX post request here to create post
     $.post('/api/maps/', mapData)
-      .then(() => {
+      .then((response) => {
         console.log("successful post to create map");
+        console.log("Response data: ", response);
       })
-      .catch(() => {
-        console.log("UNsuccesful post reques to create route");
+      .catch((error) => {
+        console.log("UNsuccesful post reques to create route", error);
       });
   }); //end save map button
 
