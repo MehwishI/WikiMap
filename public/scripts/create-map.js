@@ -48,7 +48,7 @@ $("#save-map-button").click(function() {
 
 
   //AJAX post request here to create post
-  $.post('/api/maps', mapData)
+  $.post('/api/maps/', mapData)
     .then(()=>{
       console.log("successful post to create map")
     })

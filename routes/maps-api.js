@@ -27,7 +27,7 @@ router.post('/', (req, res) =>{
   const title = req.body.title;
   const latitude = req.body.latitude
   const longitude = req.body.longitude
-  let mapData = {user_id: user_id, uid: uid, title: title, latitude: latitude, longitude: longitude}
+  let mapData = {user_id: user_id, uid: uid, title: title, center_latitude: latitude, center_longitude: longitude}
   mapQueries.createMap(mapData)
   .then((map) => {
     //res.json(map)//will this correctly convert the returned sql rows to json?
