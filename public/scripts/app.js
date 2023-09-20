@@ -11,14 +11,14 @@ $(() => {
   //put everything here
   //function calls
 
-  $.get("/maps").then((res) => {
-    console.log(res);
-    createMap();
-    //google api here?
-    //call create map here?
-    //jquery load div into body
-    //
-  });
+  // $.get("/maps").then((res) => {
+  //   console.log(res);
+  //   createMap();
+  //   //google api here?
+  //   //call create map here?
+  //   //jquery load div into body
+  //   //
+  // });
 
   console.log("test");
 

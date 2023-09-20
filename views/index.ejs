@@ -21,7 +21,7 @@
     ></script>
     <script defer src="/scripts/app.js"></script>
     <script defer src="/scripts/maps.js"></script>
-    <script defer src="/scripts/locs.js"></script>
+    <!-- <script defer src="/scripts/locs.js"></script> -->
 
     <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
     <style>
@@ -46,7 +46,7 @@
 
       #map-screen {
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         margin: 50px 0px 50px 40px;
       }
 
@@ -54,6 +54,10 @@
         padding-top: 200px;
         padding-left: 40px;
         margin: 0px;
+      }
+      #locs-container {
+        height: 500px;
+        width: 500px;
       }
     </style>
   </head>
@@ -76,12 +80,7 @@
 
     <div id="map-screen">
       <div id="maps-container"></div>
-
-      <iframe
-        src="http://localhost:8080/locs/1"
-        width="70%"
-        height="800"
-      ></iframe>
+      <div id="locs-container"></div>
     </div>
   </body>
 </html>

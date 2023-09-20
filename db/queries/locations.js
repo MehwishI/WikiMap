@@ -9,18 +9,18 @@ const getLocations = () => {
 //used by /api/locs/:mapid
 //this needs to be updated once maps table has lat and long , so those will be captured and pass it with query
 //result
+//query modified by mehwish
 const getLocsByMapId = (mapid) => {
   const queryString = `
-  SELECT locations.*, maps.center_latitude, maps.center_longitude
+  SELECT locations.*,
+  maps.center_latitude as center_latitude,
+  maps.center_longitude as center_longitude
   FROM locations
   JOIN maps ON locations.map_id = maps.id
-  WHERE locations.map_id = $1;`
-  return db
-    .query(queryString,[mapid])
-    .then((data) => {
-      return data.rows;
-    });
+  WHERE locations.map_id = $1;`;
+  return db.query(queryString, [mapid]).then((data) => {
+    return data.rows;
+  });
 };
 
 module.exports = { getLocations, getLocsByMapId };
-
