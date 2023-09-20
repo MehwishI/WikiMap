@@ -15,14 +15,16 @@
     <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
 
     <script src="/vendor/jquery-3.0.0.js"></script>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
-    </script>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap"
+    ></script>
     <script defer src="/scripts/app.js"></script>
     <script defer src="/scripts/maps.js"></script>
+    <!-- <script defer src="/scripts/locs.js"></script> -->
 
     <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
     <style>
-
       nav {
         display: flex;
         align-items: center;
@@ -33,7 +35,6 @@
         width: 100%;
         position: fixed;
         padding: 0px 40px;
-
       }
 
       #maps-container {
@@ -45,7 +46,7 @@
 
       #map-screen {
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         margin: 50px 0px 50px 40px;
       }
 
@@ -68,21 +69,24 @@
       }
 
 
+      #locs-container {
+        height: 100%;
+        width: 100%;
+      }
     </style>
-
   </head>
 
   <body>
     <header>
       <nav>
-        <h1> Wiki Map </h1>
+        <h1>Wiki Map</h1>
         <div class="nav-links">
           <a href="/maps/create">Create Map</a>
           <a href="/favs">My Favourites</a>
-            <!-- <form action="/api/users/logout" method="POST">
+          <!-- <form action="/api/users/logout" method="POST">
               <button type="submit" name="Logout">Logout</button>
             </form> -->
-          </div>
+        </div>
       </nav>
 
 
@@ -92,16 +96,16 @@
     </header>
 
     <div id="map-screen">
-
       <div id="maps-container"></div>
-
       <div id="map-display">
         <form method="POST" action="/favs">
           <button id="fav-button" type="submit">Add to Favourite</button>
         </form>
-        <iframe src="http://localhost:8080/locs/1" width="100%" height="800"></iframe>
-      </div>
 
+
+        <div id="locs-container"></div>
+
+      </div>
 
     </div>
 

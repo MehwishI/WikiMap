@@ -9,3 +9,5 @@ INSERT INTO users (name, email) VALUES ('David', 'david@example.com');
 INSERT INTO users (name, email) VALUES ('Fiona', 'fiona@example.com');
 INSERT INTO users (name, email) VALUES ('George', 'george@example.com');
 INSERT INTO users (name, email) VALUES ('Hannah', 'hannah@example.com');
+INSERT INTO users (name, email) VALUES ('Jas', 'jas@example.com');
+INSERT INTO users (name, email) VALUES ('Jen', 'jen@example.com');
