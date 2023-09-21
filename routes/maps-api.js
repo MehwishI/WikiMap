@@ -31,10 +31,7 @@ router.post('/', (req, res) =>{
   let mapData = {user_id: user_id, uid: uid, title: title, center_latitude: latitude, center_longitude: longitude, zoom_level: zoom_level}
   mapQueries.createMap(mapData)
   .then((map) => {
-    //res.json(map)//will this correctly convert the returned sql rows to json?
-    console.log(res)
-    //would I conver tot json here
-    //res.redirect('/create');
+
     res.json(map)
   }).catch((err)=>{
     console.log("There was an error creating the map")
@@ -82,14 +79,8 @@ router.post('/create', (req, res) =>{
   }).catch((err)=>{
     console.log("There was an error creating the map")
   })
-      // .then((map) => {
-      //   res.json({ map });
-      // })
-      // .catch((err)=>{
-      //   console.log("create map route error: ", err)
-      // })
 
-})
+}) //end post route
 
 
 // Read one GET

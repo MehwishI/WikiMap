@@ -54,10 +54,7 @@ $(() => {
     console.log("retrieved title: ", title);
 
     let center = map.getCenter();
-    //let user_id = cookies.user_id
-    //console.log("user id:" ,user_id)
-    //add to map data object
-    //mapData['user_id'] = ""
+
     //hard code the UID as I dont know what it is
     mapData["uid"] = 1;
     //hard code the title until I can figure out how to capture it
@@ -66,53 +63,33 @@ $(() => {
     mapData['center_longitude'] = center.lng();
     mapData['zoom_level'] = map.getZoom();
 
-    //for some reason when I tried to assign markerslist to the mapData object it caused a recursive loop?
-    //I don't why
-    //the below code seems silly, but it seems to have stopped it ()
-
-    let transferMarkers = []
-    for(let marker in markersList){
-      console.log(marker)
-      transferMarkers.push(marker)
-    }
-    mapData['markerList'] = transferMarkers;
-    //console.log(markersList)
-    // console.log("Map Data Obj: ", mapData);
-    console.log("transfer markers: ", transferMarkers)
-
     //AJAX post request here to create post
     $.post('/api/maps', mapData)
       .then((newMapData) => {
 
-        //debugging
-
-        // console.log("successful post to create map");
         console.log("Response data: ", newMapData);
-        // console.log("examine marker internal position", markersList[0].internalPosition.lat());
-        // console.log("markers list: ", markersList);
 
         //create and load object with locations to send to route/query
 
         const dataToLocations = {};
 
-        //{title: "bam", description: "something', map_id: }
-
-        // dataToLocations['title'] = newMapData['title'];
-        // dataToLocations['description'] = "demo description";
-        // dataToLocations['map_id'] = newMapData['id'];
-        // dataToLocations['latitude'] = markersList[0].internalPosition.lat();
-        // dataToLocations['longitude'] = markersList[0].internalPosition.lng();
+        dataToLocations['title'] = newMapData['title'];
+        dataToLocations['description'] = "demo description";
+        dataToLocations['map_id'] = newMapData['id'];
+        dataToLocations['latitude'] = markersList[0].internalPosition.lat();
+        dataToLocations['longitude'] = markersList[0].internalPosition.lng();
 
 
         ///---Mentor Nicholas suggested I not do this and instead call the query function addlocations
         //direction in the post handler for create ma) (in the then statement) since we have the  json data right there
         //see line 36 in maps-api.js....not delete the route handler in locations, DO NOT DO THE QUERY CALL
-        // $.post('/api/locs', dataToLocations)
-        //   .then((newFavouritesData) => {
-        //     console.log("new favourites returned data", newFavouritesData);
-        //   }).catch((error) => {
-        //     console.log("Error messge from post to locations", error);
-        //   });
+
+        $.post('/api/locs', dataToLocations)
+          .then((newFavouritesData) => {
+            console.log("new favourites returned data", newFavouritesData);
+          }).catch((error) => {
+            console.log("Error messge from post to locations", error);
+          });
 
       })
       .catch((error) => {
@@ -130,15 +107,15 @@ $(() => {
   //   });
   // }
 
-  const addMarker = function (latLng) {
+  // const addMarker = function (latLng) {
 
-    new google.maps.Marker({
-      position: latLng,
-      map: map,
-      title: "My magic marker",
-    });
+  //   new google.maps.Marker({
+  //     position: latLng,
+  //     map: map,
+  //     title: "My magic marker",
+  //   });
 
-  };
+  // };
 
 
 });//end document ready
