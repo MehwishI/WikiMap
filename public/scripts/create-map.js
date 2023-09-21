@@ -67,7 +67,46 @@ $(() => {
     $.post('/api/maps', mapData)
       .then((newMapData) => {
 
-        console.log("Response data: ", newMapData);
+        console.log("Response data line 70: ", newMapData);
+
+        console.log("longitude test: ", markersList[0].internalPosition.lng())
+        async function postLocations(markersList, newMapData){
+          for (const marker of markersList) {
+            let count = 1;
+            //console.log("Response data line 75 inside asynch function: ", newMapData);
+            console.log("processing marker", marker);
+            //console.log("newMapData id: ", newMapData['id'])
+            //let id = newMapData['id']
+            const dataToLocations = {
+              'title': 'demo title',
+              'description': "demo description",
+              'map_id': newMapData.id,
+              'latitude': markersList[count].internalPosition.lat(),
+              'longitude': markersList[count].internalPosition.lng(),
+
+            };
+            console.log('latitude', markersList[count].internalPosition.lat(),
+            'longitude', markersList[count].internalPosition.lng())
+            count++
+            //console.log("latitude in asynch function", latitude)
+            //console.log("longitude in asynch function", longitude)
+            try {
+              const newFavouritesData = await $.post('/api/locs', dataToLocations);
+              console.log("new favourites returned data", newFavouritesData);
+            } catch (error) {
+              console.log("Error message from post to locations", error);
+            }
+          }
+        }
+
+        // Usage
+        // This assumes newMapData
+        postLocations(markersList, newMapData)
+          .catch((error) => {
+            console.log("UNsuccessful post request to create route", error);
+          });
+
+
 
         //create and load object with locations to send to route/query
 
