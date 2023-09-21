@@ -76,13 +76,8 @@ $(() => {
         dataToLocations['title'] = newMapData['title'];
         dataToLocations['description'] = "demo description";
         dataToLocations['map_id'] = newMapData['id'];
-        dataToLocations['latitude'] = markersList[0].internalPosition.lat();
+        dataToLocations['latitude'] = markersList[0].internalPosition.lat(); //this number would need to escalate 
         dataToLocations['longitude'] = markersList[0].internalPosition.lng();
-
-
-        ///---Mentor Nicholas suggested I not do this and instead call the query function addlocations
-        //direction in the post handler for create ma) (in the then statement) since we have the  json data right there
-        //see line 36 in maps-api.js....not delete the route handler in locations, DO NOT DO THE QUERY CALL
 
         $.post('/api/locs', dataToLocations)
           .then((newFavouritesData) => {

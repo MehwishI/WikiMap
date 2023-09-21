@@ -59,7 +59,7 @@ router.post("/", (req, res) => {
   const description = req.body.description;
   const map_id = req.body.map_id;
   const latitude = req.body.latitude;
-  const longitude = req.body.latitude;
+  const longitude = req.body.lonitude;
 
   let markerData = {title, description, map_id, latitude, longitude};
   locQueries.addLocations(markerData)
