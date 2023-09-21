@@ -6,7 +6,7 @@ $(() => {
   console.log("logging maps container", $mapsContainer);
 
   //declaring the markers list here seems to be causing an stack error
-  //let markersList = [];
+  let markersList = [];
 
   let map;
   async function initMap() {
@@ -19,7 +19,7 @@ $(() => {
     resetMap(map);
     //addCenterMarker(map)
 
-    //let markersList = []
+    //let markersList = [];
     google.maps.event.addListener(map, "click", function (event) {
 
       // Get the latitude and longitude from the click event
@@ -65,10 +65,20 @@ $(() => {
     mapData['center_latitude'] = center.lat();
     mapData['center_longitude'] = center.lng();
     mapData['zoom_level'] = map.getZoom();
-    mapData['markerList'] = markersList;
 
+    //for some reason when I tried to assign markerslist to the mapData object it caused a recursive loop?
+    //I don't why
+    //the below code seems silly, but it seems to have stopped it ()
+
+    let transferMarkers = []
+    for(let marker in markersList){
+      console.log(marker)
+      transferMarkers.push(marker)
+    }
+    mapData['markerList'] = transferMarkers;
+    //console.log(markersList)
     // console.log("Map Data Obj: ", mapData);
-
+    console.log("transfer markers: ", transferMarkers)
 
     //AJAX post request here to create post
     $.post('/api/maps', mapData)
@@ -77,7 +87,7 @@ $(() => {
         //debugging
 
         // console.log("successful post to create map");
-        // console.log("Response data: ", newMapData);
+        console.log("Response data: ", newMapData);
         // console.log("examine marker internal position", markersList[0].internalPosition.lat());
         // console.log("markers list: ", markersList);
 
