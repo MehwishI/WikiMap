@@ -41,6 +41,7 @@ router.get("/:mapid", (req, res) => {
 //LARRY AI BOT SAID TRADITIONALLY YOU USE PUT ROUTES TO UPDATE DATA
 //edit/update map
 //like, you have to retrieve the map but also update it....
+
 router.post("/:id", (req, res) => {
   return res.json({ params: req.params, body: req.body });
   mapQueries;
@@ -51,7 +52,7 @@ router.post("/:id", (req, res) => {
 
 
 //post map markers on saved maps to favourites
-router.post("/api/locs", (req, res) => {
+router.post("/", (req, res) => {
   console.log("router post to locations triggered")
 
   const title = req.body.title;
@@ -63,11 +64,12 @@ router.post("/api/locs", (req, res) => {
   let markerData = {title, description, map_id, latitude, longitude};
   locQueries.addLocations(markerData)
   .then((locations) => {
-
+    res.send(locations);
+    //console.log("locations returned:", locations)
   })
   .catch((err) => {
-    console.log("erro from post to locs route:", err)
-
+    res.send(err)
+    //console.log("error from post to locs route:", err)
   })
 
 

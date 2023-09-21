@@ -5,8 +5,9 @@ $(() => {
   const $mapsContainer = $('#maps-container');
   console.log("logging maps container", $mapsContainer);
 
+  //declaring the markers list here seems to be causing an stack error
+  //let markersList = [];
 
-  let markersList = [];
   let map;
   async function initMap() {
     const { Map } = await google.maps.importLibrary('maps');
@@ -36,7 +37,7 @@ $(() => {
       });
 
       markersList.push(marker);
-      console.log("Markers list: ", markersList);
+      // console.log("Markers list: ", markersList);
 
 
     }); //end event listenr
@@ -64,38 +65,44 @@ $(() => {
     mapData['center_latitude'] = center.lat();
     mapData['center_longitude'] = center.lng();
     mapData['zoom_level'] = map.getZoom();
+    mapData['markerList'] = markersList;
 
-    console.log("Map Data Obj: ", mapData);
+    // console.log("Map Data Obj: ", mapData);
 
 
     //AJAX post request here to create post
-    $.post('/api/maps/', mapData)
+    $.post('/api/maps', mapData)
       .then((newMapData) => {
 
         //debugging
 
-        console.log("successful post to create map");
-        console.log("Response data: ", newMapData);
-        console.log("examine marker internal position", markersList[0].internalPosition.lat());
-        console.log("markers list: ", markersList);
+        // console.log("successful post to create map");
+        // console.log("Response data: ", newMapData);
+        // console.log("examine marker internal position", markersList[0].internalPosition.lat());
+        // console.log("markers list: ", markersList);
 
         //create and load object with locations to send to route/query
 
         const dataToLocations = {};
 
-        dataToLocations['title'] = newMapData['title'];
-        dataToLocations['description'] = "demo description";
-        dataToLocations['map_id'] = newMapData['id'];
-        dataToLocations['latitude'] = markersList[0].internalPosition.lat();
-        dataToLocations['longitude'] = markersList[0].internalPosition.lng();
+        //{title: "bam", description: "something', map_id: }
+
+        // dataToLocations['title'] = newMapData['title'];
+        // dataToLocations['description'] = "demo description";
+        // dataToLocations['map_id'] = newMapData['id'];
+        // dataToLocations['latitude'] = markersList[0].internalPosition.lat();
+        // dataToLocations['longitude'] = markersList[0].internalPosition.lng();
 
 
-        $.post('/api/locs', dataToLocations)
-          .then((newFavouritesData) => {
-            console.log("new favourites returned data", newFavouritesData);
-          }).catch((error) => {
-            console.log("Error messge from post to locations", error);
-          });
+        ///---Mentor Nicholas suggested I not do this and instead call the query function addlocations
+        //direction in the post handler for create ma) (in the then statement) since we have the  json data right there
+        //see line 36 in maps-api.js....not delete the route handler in locations, DO NOT DO THE QUERY CALL
+        // $.post('/api/locs', dataToLocations)
+        //   .then((newFavouritesData) => {
+        //     console.log("new favourites returned data", newFavouritesData);
+        //   }).catch((error) => {
+        //     console.log("Error messge from post to locations", error);
+        //   });
 
       })
       .catch((error) => {
