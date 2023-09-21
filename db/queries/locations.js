@@ -45,5 +45,5 @@ const addLocations = (dataObj) => {
 };
 
 
-module.exports = { getLocations, getLocsByMapId };
+module.exports = { getLocations, getLocsByMapId, addLocations };
 

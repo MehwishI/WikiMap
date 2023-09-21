@@ -9,6 +9,8 @@ const getMaps = () => {
     });
 };
 
+
+
 //used by /api/pins/:mapid
 const getPinsByMapId = (id) => {
   //is this a pool query?

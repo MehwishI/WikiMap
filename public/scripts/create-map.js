@@ -90,11 +90,11 @@ $(() => {
         dataToLocations['longitude'] = markersList[0].internalPosition.lng();
 
 
-        $.post('the correct url once I figure this out', dataToLocations)
+        $.post('/api/locs', dataToLocations)
           .then((newFavouritesData) => {
             console.log("new favourites returned data", newFavouritesData);
           }).catch((error) => {
-            console.log("Error messge from post to favourites", error);
+            console.log("Error messge from post to locations", error);
           });
 
       })
