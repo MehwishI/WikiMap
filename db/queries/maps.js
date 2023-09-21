@@ -66,4 +66,4 @@ const editMap = (paramsObj => {
   })
 })
 
-module.exports = { getMaps, getPinsByMapId,getMapById, createMap };
+module.exports = { getMaps, getPinsByMapId,getMapById, createMap, editMap };

@@ -82,6 +82,21 @@ router.post('/create', (req, res) =>{
 
 }) //end post route
 
+//map edit put route
+
+router.put('/edit', (req, res)=>{
+
+  let dataForQuery = {}
+
+  //confirm if we need the uid in an update statement when NOT NULL constraint
+  dataForQuery['title'] = req.body.title
+  dataForQuery['center_latitude'] = req.body.center_latitude
+  dataForQuery['center_longitude'] = req.body.center_longitude
+  dataForQuery['zoom_level'] = req.body.zoom_level
+  //call edit map
+  mapQueries.editMap()
+})
+
 
 // Read one GET
 //get a specific map?

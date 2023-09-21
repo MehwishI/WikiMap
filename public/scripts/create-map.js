@@ -81,12 +81,14 @@ $(() => {
               'title': 'demo title',
               'description': "demo description",
               'map_id': newMapData.id,
-              'latitude': markersList[count].internalPosition.lat(),
-              'longitude': markersList[count].internalPosition.lng(),
+              // 'latitude': markersList[count].internalPosition.lat(),
+              // 'longitude': markersList[count].internalPosition.lng(),
+              'latitude': marker.internalPosition.lat(),
+              'longitude': marker.internalPosition.lng(),
 
             };
-            console.log('latitude', markersList[count].internalPosition.lat(),
-            'longitude', markersList[count].internalPosition.lng())
+            // console.log('latitude', markersList[count].internalPosition.lat(),
+            // 'longitude', markersList[count].internalPosition.lng())
             count++
             //console.log("latitude in asynch function", latitude)
             //console.log("longitude in asynch function", longitude)
