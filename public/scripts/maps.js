@@ -1,16 +1,34 @@
 //Client facing script, displays the list of all available maps
 
+//const { info } = require("sass");
+
 // Initializes the google map API and displays it in the div container
-function initMap(location, mapId) {
-  console.log("inside initMap", mapId);
+function initMap(center) {
   const map = new google.maps.Map(document.getElementById("locs-container"), {
     zoom: 8,
-    center: location,
+    center: center,
   });
 
+  //displaying marker
   const marker = new google.maps.Marker({
-    position: location,
+    position: center,
     map: map,
+  });
+  map.setCenter(center);
+  //toggleBounce(marker); // not working
+  console.log("before infowindow");
+  const infowindow = new google.maps.InfoWindow({
+    content: "<p>You are here!</p>",
+  });
+  console.log("maker:", marker);
+
+  marker.addListener("click", () => {
+    console.log("Marker click event fired");
+    //toggleBounce(marker);//not working
+    infowindow.open({
+      anchor: marker,
+      map,
+    });
   });
 }
 
@@ -39,11 +57,30 @@ function initMapLoc(mapLocs) {
     });
     marker.setMap(map);
 
+    //display info window when a marker is clicked
+    const infowindow = new google.maps.InfoWindow({
+      content: `<p>${loc.title}</p>`,
+    });
+
     //Toggle the animation of a marker between bouncing and not bouncing when clicked on
     marker.addListener("click", () => {
       toggleBounce(marker);
+      infowindow.open({
+        anchor: marker,
+        map,
+      });
     });
   }
+}
+function currentlocMap() {
+  //getting user's current location and initializaing a map
+  navigator.geolocation.getCurrentPosition((position) => {
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
+    const center = { lat: lat, lng: long };
+
+    initMap(center);
+  });
 }
 
 //Toggle the animation of a marker between bouncing and not bouncing
@@ -71,7 +108,7 @@ function showMapLocations(mapid) {
       // When the AJAX request is successful, this callback function is executed.
 
       let mapLocs = []; //create an array to store multiple locations for a map
-      console.log("response.locations", response.locations);
+
       // Loop through the array of available locations in the response and add to the map.
       for (const loc of response.locations) {
         //Create an object to hold each location's necessary details
@@ -98,6 +135,9 @@ function showMapLocations(mapid) {
 }
 // This code runs when the DOM is ready
 $(() => {
+  //display user's current location on the map
+  currentlocMap();
+
   const $mapsContainer = $("#maps-container");
   var location = {};
   // Make an AJAX (asynchronous) GET request to the '/api/maps' endpoint on the server.
@@ -113,15 +153,11 @@ $(() => {
     for (const map of response.maps) {
       const eachMapContainer = `
 
-        <h3> <a href="#" id="showLoc" onclick="javascript:showMapLocations(${map.id})"> ${map.title} </h3> </a>
+        <h3>
+        <a href="#" id="showLoc" onclick="javascript:showMapLocations(${map.id})"> ${map.title} </a></h3>
       </div>`;
       // Append the each map's container to the 'maps-container' div.
       $($mapsContainer).append(eachMapContainer);
-
-      // // Define the location for each map
-      location = { lat: map.center_latitude, lng: map.center_longitude };
     }
-    // Call the initMap function to initialize the Google Map for this location
-    initMap(location); //temporarily displaying the last map location (until user's currentl location functionality is done)
   });
 });
