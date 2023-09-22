@@ -23,4 +23,36 @@ const getLocsByMapId = (mapid) => {
   });
 };
 
-module.exports = { getLocations, getLocsByMapId };
+//module.exports = { getLocations, getLocsByMapId };
+//   return db
+//     .query(queryString, [mapid])
+//     .then((data) => {
+//       return data.rows;
+//     });
+// };
+
+
+//addToLocations (inbound from create map embeded post request)
+const addLocations = (dataObj) => {
+
+  //pre-emptive debugging
+  console.log("query file, add locations function triggered")
+  console.log("dataObject received", dataObj)
+
+  let data = [dataObj.title, dataObj.description, dataObj.map_id, dataObj.latitude, dataObj.longitude]
+  return db.query(`INSERT INTO locations (title, description, map_id, latitude, longitude)
+  VALUES ($1, $2, $3, $4, $5)
+  RETURNING *`, data)
+  .then(data => {
+    return data.rows[0]
+  })
+  .catch((err)=> {
+    console.log("insert query error msg: ", err)
+  })
+
+
+};
+
+
+module.exports = { getLocations, getLocsByMapId, addLocations };
+

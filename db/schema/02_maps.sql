@@ -7,5 +7,6 @@ CREATE TABLE maps (
   uid VARCHAR(255) NOT NULL,
   title VARCHAR(255) NOT NULL,
   center_latitude DOUBLE PRECISION NOT NULL,
-  center_longitude DOUBLE PRECISION NOT NULL
+  center_longitude DOUBLE PRECISION NOT NULL,
+  zoom_level DOUBLE PRECISION NOT NULL
 );

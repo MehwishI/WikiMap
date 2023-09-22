@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
     <link rel="stylesheet" href="/styles/main.css" />
-    <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
+    <link rel="stylesheet" href="/styles/layout.css"/>
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script
@@ -21,6 +21,7 @@
     ></script>
     <script defer src="/scripts/app.js"></script>
     <script defer src="/scripts/maps.js"></script>
+    <script defer src="/scripts/create-map.js" ></script>
     <!-- <script defer src="/scripts/locs.js"></script> -->
 
     <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
@@ -81,7 +82,7 @@
       <nav>
         <h1>Wiki Map</h1>
         <div class="nav-links">
-          <a href="/maps/create">Create Map</a>
+          <button class="new-map">Create New Map</button>
           <a href="/favs">My Favourites</a>
           <!-- <form action="/api/users/logout" method="POST">
               <button type="submit" name="Logout">Logout</button>
@@ -107,7 +108,19 @@
 
       </div>
 
-    </div>
+    <div id="maps-container" class="hidden"></div>
+
+    <!-- DO NOT DELETE, THIS JEREMY'S CREATE MAP FORM. WILL ADD TO ABOVE CONTAINERS, ETC. -->
+    <!-- <div class="create-map-form hidden" style="height: 400px">
+      <form id="map-title-form">
+        <label>Give your map a name</label>
+        <input id="input-title"/>
+         <button type="click" class="save-map-button" id="save-map-button">Save Map</button> -->
+<!--
+      <button class="save-map-button" id="save-map-button">Save Map</button>
+    </form>
+    <button type="click" id="reset" class="map-reset-button">Reset</button>
+    </div> -->
 
   </body>
 </html>
