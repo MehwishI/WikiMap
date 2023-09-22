@@ -67,7 +67,7 @@ $(() => {
     $.post('/api/maps', mapData)
       .then((newMapData) => {
 
-        console.log("Response data line 70: ", newMapData);
+        console.log("New map returned from table: ", newMapData);
 
         console.log("longitude test: ", markersList[0].internalPosition.lng())
         async function postLocations(markersList, newMapData){
