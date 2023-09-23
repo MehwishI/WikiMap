@@ -1,11 +1,9 @@
 //Client facing script, displays the list of all available maps
 
-//const { info } = require("sass");
-
 // Initializes the google map API and displays it in the div container
 function initMap(center) {
   const map = new google.maps.Map(document.getElementById("locs-container"), {
-    zoom: 8,
+    zoom: 12,
     center: center,
   });
 
@@ -15,15 +13,14 @@ function initMap(center) {
     map: map,
   });
   map.setCenter(center);
-  //toggleBounce(marker); // not working
-  console.log("before infowindow");
+
   const infowindow = new google.maps.InfoWindow({
     content: "<p>You are here!</p>",
   });
   console.log("maker:", marker);
 
   marker.addListener("click", () => {
-    console.log("Marker click event fired");
+    
     //toggleBounce(marker);//not working
     infowindow.open({
       anchor: marker,
@@ -59,7 +56,8 @@ function initMapLoc(mapLocs) {
 
     //display info window when a marker is clicked
     const infowindow = new google.maps.InfoWindow({
-      content: `<p>${loc.title}</p>`,
+      content: `<p>${loc.title}</p>
+      <button class="edit-loc" onclick="editlocation(${loc.loc_id})">Edit</button>`,
     });
 
     //Toggle the animation of a marker between bouncing and not bouncing when clicked on
@@ -113,6 +111,7 @@ function showMapLocations(mapid) {
       for (const loc of response.locations) {
         //Create an object to hold each location's necessary details
         const locationDetails = {
+          loc_id: loc.id,
           lat: loc.latitude,
           lng: loc.longitude,
           title: loc.title,
@@ -133,6 +132,18 @@ function showMapLocations(mapid) {
       console.error("Ajax request failed:", status, error);
     });
 }
+//edit location
+// function editlocation(loc_id) {
+//   console.log("loc_id",loc_id)
+//   $.ajax({
+//     method: "POST",
+//     url:`/api/loc/edit/${loc_id}`,
+//   }).done((response)=>{
+//     Redirect("index");
+//   })
+
+//}
+
 // This code runs when the DOM is ready
 $(() => {
   //display user's current location on the map

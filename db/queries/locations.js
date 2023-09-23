@@ -22,5 +22,8 @@ const getLocsByMapId = (mapid) => {
     return data.rows;
   });
 };
-
+//incomplete
+// const updateLocs=(loc_id)=> {
+//   const queryString= `UPDATE`;
+// }
 module.exports = { getLocations, getLocsByMapId };
