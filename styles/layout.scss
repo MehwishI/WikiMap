@@ -10,6 +10,7 @@ html {
   display: flex;
   flex-direction: column;
 
+
 }
 
 .nav{
@@ -17,5 +18,10 @@ html {
   display: flex;
   flex-direction: row;
   position: fixed;
-  
+
+}
+
+#maps-container{
+  height: 50vh;
+  width: 50vw;
 }

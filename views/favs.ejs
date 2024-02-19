@@ -19,44 +19,71 @@
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= apiKey %>&callback=initMap">
   </script>
   <script defer src="/scripts/favs.js"></script>
+  <!-- <script defer src="/scripts/maps.js"></script> -->
+
 </head>
 
 <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
 <style>
-  * {
-    margin: 0;
-    padding: 0;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #6477b9;
+    color: white;
+    height: 120px;
+    width: 100%;
+    position: fixed;
+    padding: 0px 40px;
+
   }
 
   #favs {
-    height: 500px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .fav-map {
-    height: 250px;
-    width: 250px;
-    margin: 20px;
-  }
-
-  .each-favourite-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-evenly;
+    padding-right: 40px;
   }
+
+  #map-screen {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px 50px 40px;
+  }
+
+  h2 {
+    padding-top: 200px;
+    padding-left: 40px;
+    margin: 0px;
+  }
+
+
+
 </style>
 
 </head>
 
 <body>
-  <h1>Favourites</h1>
+  <header>
+    <nav>
+      <h1 id="home-link"> Wiki Map </h1>
+      <div class="nav-links">
+        <a href="/maps/create">Create Map</a>
+      </div>
+    </nav>
 
-  <div id="favs">
+    <h2> List of Favourite Maps </h2>
+
+  </header>
+
+  <div id="map-screen">
+
+    <div id="favs"> </div>
+
+    <iframe src="http://localhost:8080/locs/1" width="70%" height="800"></iframe>
 
   </div>
+
 
 </body>
 

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
     <link rel="stylesheet" href="/styles/main.css" />
-    <!-- <link rel="stylesheet" href="/styles/layout.css" /> -->
+    <link rel="stylesheet" href="/styles/layout.css"/>
 
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script
@@ -21,6 +21,7 @@
     ></script>
     <script defer src="/scripts/app.js"></script>
     <script defer src="/scripts/maps.js"></script>
+    <script defer src="/scripts/create-map.js" ></script>
     <!-- <script defer src="/scripts/locs.js"></script> -->
 
     <!-- A temporary internal css styling. Will be moved to a scss stylesheet later-->
@@ -50,12 +51,27 @@
         margin: 50px 0px 50px 40px;
       }
 
-      h2 {
+      h2{
         padding-top: 200px;
         padding-left: 40px;
         margin: 0px;
       }
+
+      #map-display {
+        display: flex;
+        flex-direction: column;
+        width: 70%
+      }
+
+      #fav-button {
+        margin-bottom: 10px;
+        height: 40px;
+        width: 150px;
+      }
+
+
       #locs-container {
+<<<<<<< HEAD
         width: 800px;
         height: 700px;
       }
@@ -64,6 +80,10 @@
       }
       .edit-loc {
         font-size: medium;
+=======
+        height: 100%;
+        width: 100%;
+>>>>>>> 75e736958aa43ffbfb647fb6f26722e6ab6b1caa
       }
     </style>
   </head>
@@ -73,7 +93,7 @@
       <nav>
         <h1>Wiki Map</h1>
         <div class="nav-links">
-          <a href="/maps/create">Create Map</a>
+          <button class="new-map">Create New Map</button>
           <a href="/favs">My Favourites</a>
           <!-- <form action="/api/users/logout" method="POST">
               <button type="submit" name="Logout">Logout</button>
@@ -81,12 +101,37 @@
         </div>
       </nav>
 
-      <h2>List of Available Maps</h2>
+
+      <h2> List of Available Maps </h2>
+
+
     </header>
 
     <div id="map-screen">
       <div id="maps-container"></div>
-      <div id="locs-container"></div>
-    </div>
+      <div id="map-display">
+        <form method="POST" action="/favs">
+          <button id="fav-button" type="submit">Add to Favourite</button>
+        </form>
+
+
+        <div id="locs-container"></div>
+
+      </div>
+
+    <div id="maps-container" class="hidden"></div>
+
+    <!-- DO NOT DELETE, THIS JEREMY'S CREATE MAP FORM. WILL ADD TO ABOVE CONTAINERS, ETC. -->
+    <!-- <div class="create-map-form hidden" style="height: 400px">
+      <form id="map-title-form">
+        <label>Give your map a name</label>
+        <input id="input-title"/>
+         <button type="click" class="save-map-button" id="save-map-button">Save Map</button> -->
+<!--
+      <button class="save-map-button" id="save-map-button">Save Map</button>
+    </form>
+    <button type="click" id="reset" class="map-reset-button">Reset</button>
+    </div> -->
+
   </body>
 </html>

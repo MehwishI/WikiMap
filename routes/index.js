@@ -16,7 +16,7 @@ router.get("/create", (req, res) => {
   const id = req.cookies.id;
   //const userID = req.session.userID; //edit this, we are not using session, refer to login route
   //pass the api key to the render
-  res.render("maps_new", { apiKey });
+  res.render('/', { apiKey });
   //res.json({apiKey})
 });
 

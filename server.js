@@ -33,7 +33,6 @@ app.use(express.static('public'));
 
 const pinApiRoutes = require('./routes/pins-api');
 const mapsApiRoutes = require('./routes/maps-api');
-const mapsRoutes = require('./routes');
 const favApiRoutes = require('./routes/favs-api');
 const favRoutes = require('./routes/favs');
 const locApiRoutes= require('./routes/locations-api');
@@ -45,7 +44,6 @@ const locRoutes = require('./routes/locations');
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use('/api/pins', pinApiRoutes);
 app.use('/api/maps', mapsApiRoutes);
-app.use('/', mapsRoutes);
 app.use('/api/favs', favApiRoutes);
 app.use('/favs', favRoutes);
 app.use('/locs',locRoutes);
@@ -60,9 +58,9 @@ app.use('/create', mapsApiRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {apiKey: 'AIzaSyBTlH2zUp3AWtcEogHcP0Y28fjxX_2Gv0k'});
 });
-
+ 
 //moved here on Gary's advice
 app.get('/login/:id', (req, res) => {
 res.cookie('user_id', req.params.id);

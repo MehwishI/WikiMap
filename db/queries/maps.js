@@ -9,6 +9,8 @@ const getMaps = () => {
     });
 };
 
+
+
 //used by /api/pins/:mapid
 const getPinsByMapId = (id) => {
   //is this a pool query?
@@ -31,31 +33,37 @@ const getMapById = (id) => {
 
 //POST REQUESTS
 const createMap = (paramsObj) => {
+  console.log("logging paramsObject in create map", paramsObj)
   //may have to adjuste params depending on how we choose to post (form, etc)
-  return db.query(`INSERT INTO maps (user_id, uid, title, center_longitude, center_latitude)
-  VALUES ($1, $2, $3, $4, $5)`)
-  .then(data => {
+  //note the user id in the cookie is coming from the post route...or last least I think it is
+  console.log("create maps trigged, and user id is: ", paramsObj.user_id);
+  let data =[paramsObj.user_id, paramsObj.uid, paramsObj.title, paramsObj.center_latitude, paramsObj.center_longitude, paramsObj.zoom_level]
+  return db.query(`INSERT INTO maps (user_id, uid, title, center_latitude, center_longitude, zoom_level)
+  VALUES ($1, $2, $3, $4, $5, $6)
+  RETURNING *`, data)
+  .then((data) => {
     return data.rows[0]
   })
-  .catch((err)=> {
-    console.log("create map error message: ", err.message)
+  .catch((err) => {
+    console.log("create map error message: ", err)
   });
 
 };
 
-//jsut here for reference, delete later
-// const addUser = function (user) {
-//   return pool
-//   .query(`INSERT INTO users (name, email, password)
-//   VALUES ($1, $2, $3)
-//   RETURNING *`, [user.name, user.email, user.password])
-//   .then((result)=> {
-//     return result.rows[0]
-//   })
-//   .catch((err) => {
-//     console.log(err.message)
-//   })
+const editMap = (paramsObj => {
+  let data =[paramsObj.id, paramsObj.user_id, paramsObj.uid, paramsObj.title, paramsObj.center_latitude, paramsObj.center_longitude, paramsObj.zoom_level]
+  console.log("edit maps query function triggered")
+  //not updating map id, user_id, or uid
+  return db.query(`UPDATE title, center_latitude, center_longitude, zoom-level)
+  VALUES($1, $2, $3, $4)
+  WHERE paramsObj.id =${paramsObj.id}
+  RETURNING *`, data,)
+  .then((response)=>{
+    return response.rows[0]
+  })
+  .catch((err) => {
+    console.log("edit map error messsage: ", err)
+  })
+})
 
-// };
-
-module.exports = { getMaps, getPinsByMapId,getMapById, createMap };
+module.exports = { getMaps, getPinsByMapId,getMapById, createMap, editMap };
