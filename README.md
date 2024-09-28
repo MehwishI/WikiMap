@@ -1,4 +1,4 @@
-LHL Node Skeleton
+WikiMap
 =========
 
 ## Project Setup
